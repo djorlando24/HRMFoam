@@ -1,0 +1,9 @@
+faceSet movingFaces new patchToFace Needle
+cellSet movingCells new faceToCell movingFaces any
+faceSet movingFaces add cellToFace movingCells all
+faceSet movingFaces delete cellToFace movingCells both
+faceSet movingFaces delete patchToFace Needle
+faceSet movingFaces delete patchToFace Inlet
+
+cellSet movingFacesMasterCells new faceToCell movingFaces any
+cellSet movingFacesMasterCells delete cellToCell movingCells
