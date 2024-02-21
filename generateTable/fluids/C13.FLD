@@ -1,0 +1,142 @@
+tridecane          !short name
+629-50-5           !CAS number
+n-tridecane        !full name
+CH3-11(CH2)-CH3    !chemical formula
+tridecane          !synonym
+184.361420         !molecular weight [g/mol]
+267.76             !triple point temperature [K]DIPPR DIADEM 2004,v4.0.0
+508.65             !normal boiling point [K]from FEQ EOS
+675.869737         !critical temperature [K]
+1700.42717         !critical pressure [kPa]
+1.21445503         !critical density [mol/L]
+0.61441571         !acentric factor
+-1.                !dipole moment [Debye]
+NBP                !default reference state
+8.0                !version number
+n-alkane           !family
+
+! compiled by E.W. Lemmon, NIST Physical and Chemical Properties Division, Boulder, Colorado
+! 10-28-03 EWL, original version
+! 09-02-06 MLH, added CPP, ECS predictive transport, modified ttp
+! 10-20-09 mlh, added planck einstein cp0 from TDE v4, internal version, oct 09
+
+
+#EOS               !equation of state specification
+FEQ  short Helmholtz equation of state for dodecane of Lemmon (2003).
+?LITERATURE REFERENCE \
+?Lemmon, E.W.
+? preliminary equation, 2003.
+?\
+!end of info section
+267.76             !lower temperature limit [K]
+800.               !upper temperature limit [K]
+700000.            !upper pressure limit [kPa]
+5.                 !maximum density [mol/L]
+CPP                                    !pointer to Cp0 model
+184.361420                             !molecular weight [g/mol]
+267.76                                 !triple point temperature [K]
+0.0001                                 !pressure at triple point [kPa]
+5.                                     !density at triple point [mol/L]
+500.000000                             !normal boiling point temperature [K]
+0.61441571                             !acentric factor
+675.8697372963  1700.427  1.2144550291 !Tc [K], pc [kPa], rhoc [mol/L]
+675.8697372963            1.2144550291 !reducing parameters [K, mol/L]
+8.314472                               !gas constant [J/mol-K]
+  12  4      0 12      0  0            !# terms, # coeff/term for:  "normal" terms, critical, spare
+  0.199416314796D+01   0.32879762886   1.00000000000   0.00000000000   1.00000000000  !a(i),t(i),d(i),l(i)
+ -0.326940208413D+01   1.02346250681   1.00000000000   0.00000000000   1.00000000000
+  0.386809069670D+00   2.22866172034   1.00000000000   0.00000000000   1.00000000000
+ -0.214909983875D+00   1.93973355850   2.00000000000   0.00000000000   1.00000000000
+  0.104214054464D+00   0.25183759526   3.00000000000   0.00000000000   1.00000000000
+  0.239510958219D-03   0.94644466381   7.00000000000   0.00000000000   1.00000000000
+  0.519152836804D+00   0.25873129392   2.00000000000   1.00000000000   1.00000000000
+ -0.638907554809D-02   2.13961822811   5.00000000000   1.00000000000   1.00000000000
+ -0.479031391355D+00   4.12016388425   1.00000000000   2.00000000000   1.00000000000
+ -0.160546347137D+00   5.05052760146   4.00000000000   2.00000000000   1.00000000000
+ -0.499425831958D-01  14.19383100120   3.00000000000   3.00000000000   1.00000000000
+  0.374627694781D-01  15.00800437339   4.00000000000   3.00000000000   1.00000000000
+
+
+#AUX               !auxiliary model specification
+CPP  ideal gas heat capacity function
+?LITERATURE REFERENCE \
+?Coefficients from internal version of TDE Oct 2009
+?Planck Einstein formulation
+?\
+!end of info section
+200.00             !lower temperature limit [K]
+3000.0             !upper temperature limit [K]
+0.0                !upper pressure limit [kPa]
+0.0                !maximum density [mol/L]
+1.0          1.0                       !reducing parameters for T, Cp0
+  1  2    0  0    0  0  0              !Nterms:  polynomial, exponential, cosh, sinh
+ 50.4036  0.279146
+ 338.515  1534.36
+ 103.734  2780.47
+
+
+#TRN               !transport model specification
+ECS  Extended Corresponding States model (C12 reference); predictive mode.
+?LITERATURE REFERENCES \
+?Huber, M.L., Laesecke, A., and Perkins, R.A., Model for the viscosity
+? and thermal conductivity of refrigerants, including a new correlation
+? for the viscosity of R134a, Ind.Eng.Chem.Res. 42: 3163-3178 (2003).
+?\
+?The Lennard-Jones parameters are estimated using the method of Chung.\
+?\
+!end of info section
+267.76             !lower temperature limit [K]
+800.               !upper temperature limit [K]
+700000.            !upper pressure limit [kPa]
+5.                 !maximum density [mol/L]
+FEQ c12.FLD
+VS1                !model for reference fluid viscosity
+TC1                !model for reference fluid thermal conductivity
+1                  !Lennard-Jones flag (0 or 1) (0 => use estimates)
+0.7582             !Lennard-Jones coefficient sigma [nm] for ECS method
+536.70             !Lennard-Jones coefficient epsilon/kappa [K] for ECS method
+1  0  0            !number of terms in f_int term in Eucken correlation, spare1, spare 2
+ 1.3200d-3      0.0   0.0   0.0  !coeff, power of T, spare 1, spare 2
+1  0  0                          !number of terms in psi (visc shape factor): poly,spare1,spare2
+  1.0           0.0   0.0   0.0  !coeff, power of Tr, power of Dr, spare
+1  0  0                          !number of terms in phi (thermal cond. shape factor): poly,spare1,spare2
+  1.01          0.0   0.0   0.0  !coeff, power of Tr, power of Dr, spare
+TK3                !pointer to critical enhancement auxiliary function
+
+
+#AUX               !thermal conductivity critical enhancement model
+TK3  simplified thermal conductivity critical enhancement of Olchowy and Sengers
+?LITERATURE REFERENCE \
+?Olchowy, G.A. and Sengers, J.V.,
+? "A simplified representation for the thermal conductivity of fluids in the
+? critical region,"
+? Int. J. Thermophysics, 10:417-426, 1989.
+?\
+?as applied to CO2 by:
+?\
+?Vesovic, V., Wakeham, W.A., Olchowy, G.A., Sengers, J.V., Watson, J.T.R.
+? and Millat, J.,
+? "The transport properties of carbon dioxide,"
+? J. Phys. Chem. Ref. Data, 19:763-808, 1990.
+?\
+!end of info section
+267.76             !lower temperature limit [K]
+800.               !upper temperature limit [K]
+700000.            !upper pressure limit [kPa]
+5.                 !maximum density [mol/L]
+9  0  0  0         !# terms:  CO2-terms, spare, spare, spare
+1.0     1.0     1.0      !reducing par for T, rho, tcx (mW/m-K)
+0.630d0            !gnu (universal exponent)
+1.239d0            !gamma (universal exponent)
+1.03d0             !R0 (universal amplitude)
+0.063d0            !z (universal exponent--not used for t.c., only viscosity)
+1.00d0             !c (constant in viscosity eqn = 1/[2 - (alpha + gamma)/(2*nu)], but often set to 1)
+0.194d-9           !xi0 (amplitude) [m]
+0.0496             !gam0 (amplitude) [-]
+1.803d-09          !qd_inverse (modified effective cutoff parameter) [m] estimated
+1013.8d+00         !tref (reference temperature)=1.5*Tc [K]
+
+
+@END
+c        1         2         3         4         5         6         7         8
+c2345678901234567890123456789012345678901234567890123456789012345678901234567890

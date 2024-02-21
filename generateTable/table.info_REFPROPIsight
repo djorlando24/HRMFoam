@@ -1,0 +1,8 @@
+#1 - only D86 , 2 - D86, fluid.dat, liquid.dat, 3 - only liquid.dat
+2
+#number of components 
+6  
+"fluids/PENTANE.FLD" "fluids/IPENTANE.FLD"  "fluids/HEXANE.FLD"  "fluids/224TMP.FLD"  "fluids/DECANE.FLD" "fluids/C12.FLD"
+0.077 0.133 0.111 0.452 0.178  0.049   #mass fractions
+P_start 1000  P_end 1.5e7 Step 1000
+H_start 20E3 H_end  260E3 Step 15E3

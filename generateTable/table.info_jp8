@@ -1,0 +1,8 @@
+#1 - only D86 , 2 - D86, fluid.dat, liquid.dat, 3 - only liquid.dat
+2
+#number of components 
+5  
+"fluids/BENZENE.FLD" "fluids/TOLUENE.FLD" "fluids/DECANE.FLD" "fluids/C12"  "fluids/C16.FLD"  
+0.0954 0.0954  0.2857 0.3329 0.1906  #mass fractions
+P_start 20000  P_end 1.5e7 Step 1000
+H_start -230E3 H_end  620E3 Step 15E3

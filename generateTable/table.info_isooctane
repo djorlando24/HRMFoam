@@ -1,0 +1,8 @@
+#1 - only D86 , 2 - D86, fluid.dat, liquid.dat, 3 - only liquid.dat
+2
+#number of components 
+1  
+"fluids/224TMP.FLD"
+1.00   #mass fractions
+P_start 1000  P_end 1E6 Step 1E3
+H_start 100E3 H_end  300E3 Step 10E3

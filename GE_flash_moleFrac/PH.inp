@@ -1,0 +1,5 @@
+#Tref(K)     Href(j/kg)
+273          0
+P_start   18000   P_end   1000000    P_step   1000.00
+H_start   -90000      H_end   160000   H_step  10000.00
+ 
