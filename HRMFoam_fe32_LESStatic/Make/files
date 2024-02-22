@@ -1,0 +1,20 @@
+HRMFoam.C 
+./propReader/newthermoBase.C
+./propReader/thermoBase.C
+./propReader/refprop/refprop.C
+./modelCal/modelCalc.C
+./thermDensity/thermDensityFvPatchScalarField.C
+./thermX/thermXFvPatchScalarField.C
+./tracerBc/tracerFvPatchScalarField.C
+./fixedHeatFlux/fixedHeatFluxFvPatchScalarField.C
+./injNeedleTopoFvMesh/injNeedleTopoFvMesh.C
+./timeVaryingDisplacement/timeVaryingDisplacementPointPatchVectorField.C
+./pacManTopoFvMesh3/pacManTopoFvMesh3.C
+./pacManTopoFvMesh2/pacManTopoFvMesh2.C
+./pacManTopoFvMesh/pacManTopoFvMesh.C
+./needleMotion2/needleMotion2.C
+./needleMotion/needleMotion.C
+./transonicTotalPressure/transonicTotalPressureFvPatchScalarField.C
+./timeVaryingTransonicTotalPressure/timeVaryingTransonicTotalPressureFvPatchScalarField.C
+./isoThermH/isoThermHFvPatchScalarField.C
+EXE = $(FOAM_USER_APPBIN)/HRMFoamLESStatic-writePsi2Phase

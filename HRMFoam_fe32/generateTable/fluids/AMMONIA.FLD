@@ -1,0 +1,148 @@
+ammonia-Lemmon     !short name
+7664-41-7          !CAS number
+ammonia            !full name
+NH3                !chemical formula
+R-717              !synonym
+17.03052           !molecular weight [g/mol]
+195.495            !triple point temperature [K]
+300.               !normal boiling point [K]
+405.40             !critical temperature [K]
+11333.0            !critical pressure [kPa]
+13.2118            !critical density [mol/L]
+0.25601            !acentric factor
+1.470              !dipole moment [Debye]
+OTH                !default reference state
+300.0   1.0   28945.714499977374 159.3366633735422 !tref, Pref, Href, Sref (corresponds to u,s = 0 @ Ttp)
+8.0                !version number
+1005               !UN Number
+
+
+! compiled at NIST Physical and Chemical Properties Division, Boulder, Colorado
+! 08-01-08 EWL, original version
+
+
+#EOS               !equation of state specification
+FEQ  Helmholtz equation of state
+?LITERATURE REFERENCE \
+?\
+!end of info section
+195.495            !lower temperature limit [K]
+700.0              !upper temperature limit [K]
+1000000.0          !upper pressure limit [kPa]
+52.915             !maximum density [mol/L]
+CPP                                    !pointer to Cp0 model
+17.03052                               !molecular weight [g/mol]
+195.495                                !triple point temperature [K]
+6.09                                   !pressure at triple point [kPa]
+43.035                                 !density at triple point [mol/L]
+239.823                                !normal boiling point temperature [K]
+0.25601                                !acentric factor
+405.5600000000 11333.000    13.6796359 !Tc [K], pc [kPa], rhoc [mol/L]
+405.5600000000              13.6796359 !reducing parameters [K, mol/L]
+8.314472                               !gas constant [J/mol-K]
+  11  5     13 12      0  0            !# terms, # coeff/term for:  "normal" terms, critical, spare
+  0.2530178995905D-03   1.000000000000   4.000000   0.000000   1.000000                                                !a(i),t(i),d(i),l(i)
+  0.8435257489442D-03   1.000000000000   5.000000   0.000000   1.000000
+  0.1765528223564D+01   0.415378032977   1.000000   0.000000   1.000000
+ -0.1414740112012D+01   0.911256888478   1.000000   0.000000   1.000000
+  0.5566573864971D+00   0.860437691616   2.000000   0.000000   1.000000
+ -0.1266014802901D+01   0.981080756632   2.000000   0.000000   1.000000
+  0.1486371179082D+00   0.857217759304   3.000000   0.000000   1.000000
+ -0.4366562662289D+00   3.150277323997   2.000000   2.000000   1.000000
+ -0.1588085641398D+01   1.169197949259   1.000000   1.000000   1.000000
+ -0.9328057941329D+00   3.486866505203   1.000000   2.000000   1.000000
+ -0.6854549930879D+00   1.188992104206   2.000000   1.000000   1.000000
+  0.1067584062303D+00   1.938436491789   1.000000   2.000000   2.858608     -0.37469794      -0.8752260   0.000000000   0.000000000 0. 0. 0.
+ -0.1002610767946D-01   0.593744504049   3.000000   3.000000   5.190918     -0.24816209      -0.1184607   0.000000000   0.000000000 0. 0. 0.
+ -0.1005840732698D+01   2.706571945855   3.000000   2.000000   1.243821     -1.02304724      -0.0754152   0.000000000   0.000000000 0. 0. 0.
+  0.2544775940783D+01   2.340429548874   5.313485   1.000000   1.299321     -4.15022072      -0.6997502   0.000000000   0.000000000 0. 0. 0.
+  0.8377414677898D+00   2.604282751492   1.000000  2.0  2.0     -1.06265113      -0.7138301   1.274860453   0.749471424 0. 0. 0.
+  0.2860003670457D+00   2.831310498965   1.000000  2.0  2.0     -0.45708129      -0.7605659   0.369314345   0.563240386 0. 0. 0.
+ -0.1380931466075D-02  13.936324714738   2.000000  2.0  2.0     -4.84833930      -1.6260969   0.383866675   0.379483534 0. 0. 0.
+ -0.2021213091784D+00   3.307166182157   3.000000  2.0  2.0     -1.13349668      -0.5838572   0.698756770   0.650140492 0. 0. 0.
+ -0.2744331233949D-01   2.814507382689   2.000000  2.0  2.0     -0.43388384      -0.6839329   0.362170968   1.535764092 0. 0. 0.
+ -0.5353837347368D-01   1.288964305632   1.000000  2.0  2.0     -2.07359265      -5.8777405   0.660342142   0.270421167 0. 0. 0.
+  0.1991774440608D-01   1.691108285085   2.000000  2.0  2.0     -0.90340592      -0.5373195   0.390877397   2.594596388 0. 0. 0.
+  0.4876056292384D-05   8.442589615051   3.000000  2.0  2.0     -6.75679789       0.0000000   0.808396437   2.210158882 0. 0. 0.
+ -0.3982213977165D+01   5.924907242294   2.000000  2.0  2.0    -14.43419465    -100.0563039   1.311062269   0.902571775 0. 0. 0.
+
+
+#AUX               !auxiliary model specification
+CPP  ideal gas heat capacity function
+?LITERATURE REFERENCE \
+?\
+!end of info section
+  5.0              !lower temperature limit [K]
+5000.              !upper temperature limit [K]
+0.0                !upper pressure limit [kPa]
+0.0                !maximum density [mol/L]
+1.0          8.314472                  !reducing parameters for T, Cp0
+  1  3    0  0    0  0  0              !Nterms:  polynomial, exponential, cosh, sinh
+ 0.399446309446D+01      0.00000000
+ 0.354885814350D+01   4843.74910057
+ 0.533126425757D+00   1196.09526965
+ 0.218432018400D+01   2022.67859677
+
+
+#PS         !vapor pressure equation
+PS5  vapor pressure equation of Lemmon (2010).
+?LITERATURE REFERENCE \
+?Lemmon, C.K. and Lemmon, E.W., 2010.
+?\
+!end of info section
+  5.495            !lower temperature limit [K]
+405.40             !upper temperature limit [K]
+0.0                !(dummy) upper pressure limit
+0.0                !(dummy) maximum density
+405.40  11333.0    !reducing parameters
+5 0 0 0 0 0        !number of terms in equation
+ 0.875907865947D+01   1.7000000
+-0.640911517272D+01   1.9500000
+-0.211854343971D+01   4.2000000
+-0.709934916282D+01   1.0000000
+-0.243296902205D+01   1.5000000
+
+
+#DL         !saturated liquid density equation
+DL1  saturated liquid density equation of Lemmon (2010).
+?LITERATURE REFERENCE \
+?Lemmon, C.K. and Lemmon, E.W., 2010.
+?\
+!end of info section
+  5.495            !lower temperature limit [K]
+405.40             !upper temperature limit [K]
+0.0                !(dummy) upper pressure limit
+0.0                !(dummy) maximum density
+405.40  13.211777  !reducing parameters
+6 0 0 0 0 0        !number of terms in equation
+ 0.636004371540D+00  90.4703518
+-0.105473139523D+01   0.0967232
+ 0.590359541394D+00   5.5743229
+ 0.285494793543D+01   0.2052996
+ 0.127278580938D+01   0.8141558
+ 0.473811327049D+00  21.2685056
+
+
+#DV         !saturated vapor density equation
+DV3  saturated vapor density equation of Lemmon (2010).
+?LITERATURE REFERENCE \
+?Lemmon, C.K. and Lemmon, E.W., 2010.
+?\
+!end of info section
+  5.495            !lower temperature limit [K]
+405.40             !upper temperature limit [K]
+0.0                !(dummy) upper pressure limit
+0.0                !(dummy) maximum density
+405.40  13.211777  !reducing parameters
+6 0 0 0 0 0        !number of terms in equation
+-0.38435D+00   0.2180000     !coefficients and exponents
+-0.40846D+01   0.5500000
+-0.66634D+01   1.5000000
+-0.31881D+02   3.7000000
+ 0.21306D+03   5.5000000
+-0.24648D+03   5.8000000
+
+
+@END
+c        1         2         3         4         5         6         7         8
+c2345678901234567890123456789012345678901234567890123456789012345678901234567890

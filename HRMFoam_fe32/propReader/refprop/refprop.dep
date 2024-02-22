@@ -1,0 +1,7 @@
+$(OBJECTS_DIR)/refprop.o: propReader/refprop/refprop.dep
+propReader/refprop/refprop.dep: propReader/refprop/refprop.C
+propReader/refprop/refprop.dep: $(WM_PROJECT_DIR)/src/foam/lnInclude/addToRunTimeSelectionTable.H
+$(OBJECTS_DIR)/refprop.o: $(EXE_DEP)
+$(OBJECTS_DIR)/refprop.o:
+	@SOURCE_DIR=propReader/refprop
+	SOURCE=propReader/refprop/refprop.C ; $(Ctoo)

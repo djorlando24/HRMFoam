@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.1                                |
+|   \\  /    A nd           | Web:         http://www.extend-project.de       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyTopoChanger;
+    location    "7e-09/polyMesh";
+    object      meshModifiers;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+1
+(
+movingFacesLayer
+{
+    type layerAdditionRemoval;
+    faceZoneName movingFaces;
+    minLayerThickness 1.5e-06;
+    maxLayerThickness 38e-06;
+    oldLayerThickness -1;
+    active true;
+}
+)
+
+// ************************************************************************* //

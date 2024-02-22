@@ -33,7 +33,9 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 ## Contents of this repository
 
-### HRMFoam_OFv2212
+### HRMFoam versions
+
+#### HRMFoam_OFv2212
 HRMFoam source code for ESI OpenFOAM. Currently supports:
 - Sigma Y with URANS (k-Epsilon, k-Omega)
 - Noncondensible gas transport
@@ -42,14 +44,34 @@ HRMFoam source code for ESI OpenFOAM. Currently supports:
 Currently NOT supported
 - Sigma Y with Large Eddy Simulation (Omega Eqn needs to be updated)
 
-### GE_Flash_moleFrac
+As currently used on LCRC Improv cluster.
+
+#### HRMFoam_fe32
+
+HRMFoam for foam-extend v3.2.
+As used on LCRC Blues and Bebop clusters.
+This version came from the SVN repo on Cod.
+
+#### HRMFoam_fe32_LESStatic
+
+HRMFoam for foam-extend v3.2, for use with static meshes.
+Contains a rough LES implementation of the Omega eqn.
+Writes psi2phase field out for calculating isenthalpic Mach number.
+As used by DD on LCRC Bebop.
+
+### Property table generators
+
+#### GE_Flash_moleFrac
+
 GEFlash isenthalphic flash evaporation property table generator for ethanol blends.
 Writes out the ethanol mole fractions instead of thermal conductivity data.
 
-### generateTable
+#### generateTable
+
 REFPROP simple (single component or ideal mixture) property table generator.
 
+### Sample cases
 
-### Wedge_Throttle_kEps
+#### Wedge_Throttle_kEps
 Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
 Uses k-Epsilon URANS but Sigma Y is disabled.

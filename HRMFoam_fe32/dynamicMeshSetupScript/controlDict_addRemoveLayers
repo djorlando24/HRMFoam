@@ -1,0 +1,70 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          controlDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application HRMFoam;
+
+startFrom       latestTime;
+//startFrom      startTime;
+
+startTime        0.0;
+
+//stopAt          writeNow;
+stopAt         endTime;
+
+endTime  5e-09;
+
+deltaT      1e-9;//    3.0e-06;
+
+maxDeltaT	0.5e-4;
+
+writeControl    timeStep; 
+//writeControl   runTime; 
+
+writeInterval   1; 
+//writeInterval    1e-6; 
+
+purgeWrite      0; 
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression compressed;
+
+//timeFormat      scientific;
+timeFormat      general;
+
+adjustTimeStep  yes;
+
+maxCo           0.8;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+writeFewerFields no;
+
+}
+
+// ************************************************************************* //
