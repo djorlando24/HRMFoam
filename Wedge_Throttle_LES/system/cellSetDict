@@ -1,0 +1,49 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "/home/penfold/mattijs/foam/mattijs2.2/run/icoFoam";
+    case            "cavityTut";
+    instance        "system";
+    local           "";
+
+    class           dictionary;
+    object          cellSetDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Name of set to operate on
+name c0;
+
+// One of clear/new/invert/add/delete|subset/list
+action new;
+
+// Actions to apply to cellSet. These are all the topoSetSource's ending
+// in ..ToCell (see the meshTools library).
+
+topoSetSources
+(
+
+    // Cells with cell centre within box
+    boxToCell
+    {
+       box   (-1.02E-3 0 -1e-4) (-1.7E-4 0.00068  1e-4);
+//         box   (-1  -1  -1) (1 1 1);
+
+    }
+
+    
+);
+
+
+// ************************************************************************* //

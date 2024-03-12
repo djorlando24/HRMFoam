@@ -1,15 +1,1 @@
-Equation of State :1(RK),2(SRK),3(Peng-Robinson),4(Peng-Robinson-Gasem), 5(PRSV), 6(modified Rackett) 
-6
-Ethanol############################################################################################
-Tcrit(K)  Pcrit(Pa)  Volcrit(m^3/mol)     Molecular Wt(kg/kmol)   moleFraction   
-513.9     6140E3     167E-6 		    46.069  		   0.198
-
-Accentric Factor   K1 (For PRSV)   ZRA(For modified Rackett)       Specific Heat(CP)   Viscosity     Conductivity
-0.644		-0.16816		0.2502				2.38		0.000655	0.15
-
-R-134a##############################################################################################
-Tcrit(K)  Pcrit(Pa)  Volcrit(m^3/mol)   Molecular Wt(kg/kmol)   moleFraction   
-374.23	4060.3E3	1.9794E-4	102.03			0.802
-
-Accentric Factor    K1 (For PRSV)    ZRA(For modified Rackett)     Specific Heat(CP)     Viscosity    Conductivity
-0.32684			0.0048		0.26187979			1.43		0.00019046	0.080341
+SV_GEflash_inputs/r134a_e8/ThermoProps.inp

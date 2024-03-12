@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default Euler;
+}
+
+gradSchemes
+{
+    default         Gauss linear;
+//    grad(p)         leastSquares;
+}
+
+divSchemes
+{
+    default          none;
+    div(phiv,p)     Gauss Gamma 1.0;
+    div(phiv,rho)   Gauss Gamma 1.0;
+    div(phi,p)      Gauss Gamma 1.0;
+    div(phi,h)     Gauss  Gamma 1.0;
+    div(phi,U)      Gauss GammaV 1.0 ;
+    div(U)          Gauss GammaV phi 1.0 ;
+    div(phi,x)      Gauss Gamma 1.0;
+
+//turbulence
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+    div(phi,epsilon) Gauss Gamma 1.0;
+    div(phi,k)      Gauss Gamma 1.0;
+    div(phi,B)      Gauss Gamma 1.0;
+    div(phi,muTilda) Gauss Gamma 1.0;
+    div(B)          Gauss Gamma 1.0;
+
+//Sigma-Y
+    div(phi,Omega)    Gauss Gamma 1;
+
+}
+
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+
+    laplacian(diffusivity,cellMotionU) Gauss linear uncorrected;
+}
+
+interpolationSchemes
+{
+    default         linear ;
+    interpolate(rho)             linear;
+    interpolate(rUA)             linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+
+fluxRequired
+{
+    default         no;
+    p;
+    rho;
+    pcorr;
+   
+}
+
+
+// ************************************************************************* //

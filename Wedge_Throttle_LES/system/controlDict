@@ -1,0 +1,75 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          controlDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application HRMFoam;
+
+startFrom       latestTime;
+
+startTime       0.0;
+
+stopAt          endTime;
+
+endTime         1.0E-3;
+
+deltaT          1e-09;
+
+writeControl    runTime;
+
+writeInterval    25.E-6;
+
+//writeControl    timeStep;
+
+//writeInterval   5;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  7;
+
+writeCompression on;
+
+timeFormat      general;
+
+adjustTimeStep  yes;
+
+maxCo           0.9;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+/*  if we need to do writing of a field that is not normally output
+functions
+{
+    testing
+    {
+        type writeRegisteredObject;
+        functionObjectLibs ( "libIOFunctionObjects.so" );
+        objectNames ("bananas");
+        outputControl     outputTime;
+    }
+}
+*/
+// ************************************************************************* //
