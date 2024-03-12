@@ -1,0 +1,21 @@
+The setupCase.sh script can be used in conjunction with the noHydro solver and the cleanParallelFaceZones utility (both in the svn repo) to setup a parallel dynamic mesh motion case which will be ready to run with the pacManTopo3 layer addition/removal library with uniform layer motion. The script allows for the simulation to start with a non-zero number of uniform layers. Additionally, a bug fix must be compiled in the foam src.
+
+To install the bug fixed for the foam dynamicMesh library:
+
+    1: Replace the stock foam version located here:
+           $FOAM_SRC/dynamicMesh/dynamicMesh/polyMeshModifiers/layerAdditionRemoval/
+       with the one contained in this folder.
+    2: cd to $FOAM_SRC/dynamicMesh/dynamicMesh and type
+         >>wclean
+         >>wmake libso
+
+This will recompile the dynamicMesh library with our version of addCellLayer.C
+
+Next, to setup the case, do the following
+    1: Put the controlDict_addRemoveLayers, and controlDict_run files in the system folder
+    2: Put the dynamicMeshDict_addRemoveLayers, dynamicMeshDict_run, meshModifiers_run, and meshModifiers_save file in the constant folder 
+    3: Put the setBatch, tmpRemove, and setupCase.sh files in the case directory
+    4: Run the setupCase.sh with the following command "bash setupCase.sh"
+         -note, that the vi command is this script won't work if you try to pipe the output to a file
+
+Prior to running the above steps, the dynamicMeshDict_*, meshModifiers_* and setBatch files must be modified to be consistest with your case in terms of boundary patch names, as well as the frontFaces and movingCells, faceZone and cellZone names.

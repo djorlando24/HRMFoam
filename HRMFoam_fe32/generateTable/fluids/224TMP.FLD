@@ -1,0 +1,250 @@
+isooctane                            !short name
+540-84-1                             !CAS number
+2,2,4-trimethylpentane               !full name
+(CH3)2CHCH2C(CH3)3                   !chemical formula
+isobutyltrimethylmethane             !synonym
+114.2285           !molecular weight [g/mol]
+165.30             !triple point temperature [K]
+372.4              !normal boiling point [K]
+543.8              !critical temperature [K]
+2560               !critical pressure [kPa]  from preliminary FEQ EOS
+2.22               !critical density [mol/L] from preliminary FEQ EOS
+0.303              !acentric factor from preliminary FEQ EOS
+0.0                !dipole moment [Debye] at nbp; estimated
+IIR                !default reference state
+8.0                !version number
+1262               !UN Number
+br-alkane          !family
+
+! 09-23-04 MLH, original version
+! Tt from Parks,G.S. et al. J. Am. Chem. Soc. 1930, 52,1032-41;
+! Tb from webbook.nist.gov.
+! Tc from Daubert,T.E., JCED 1996,41, 365-372.
+! 11-18-04 MLH, add tpr coeff
+
+
+#EOS               !equation of state specification
+FEQ  Helmholtz equation of state
+?LITERATURE REFERENCE \
+?Lemmon, E.W.
+? preliminary equation, 2004.
+?\
+?DATA SOURCES\
+? Comparisons with recommended data from TDE, version Sept. 2004, for saturation boundary from 240-520K
+? vapor pressure: 0.1%, saturated liquid density: 0.1%
+!end of info section
+165.3              !lower temperature limit [K]
+1000.              !upper temperature limit [K]
+100000.0           !upper pressure limit [kPa]
+6.96               !maximum density [mol/L]
+CPP                                    !pointer to Cp0 model
+114.2285                               !molecular weight [g/mol]
+165.3                                  !triple point temperature [K]
+.000017                                !pressure at triple point [kPa]
+6.96                                   !density at triple point [mol/L]
+372.4                                  !normal boiling point temperature [K]
+0.303                                  !acentric factor
+543.8         2560.0      2.2246582327 !Tc [K], pc [kPa], rhoc [mol/L]
+543.8                     2.2246582327 !reducing parameters [K, mol/L]
+8.314472                               !gas constant [J/mol-K]
+  12  4      0 12      0  0            !# terms, # coeff/term for:  "normal" terms, critical, spare
+  0.123505883342D+01   0.25000000000   1.00000000000   0.00000000000   1.00000000000  !a(i),t(i),d(i),l(i)
+ -0.380316425531D+01   1.12500000000   1.00000000000   0.00000000000   1.00000000000
+  0.169590228992D+01   1.50000000000   1.00000000000   0.00000000000   1.00000000000
+ -0.281558162663D+00   1.37500000000   2.00000000000   0.00000000000   1.00000000000
+  0.166466094292D+00   0.25000000000   3.00000000000   0.00000000000   1.00000000000
+  0.511427588139D-03   0.87500000000   7.00000000000   0.00000000000   1.00000000000
+  0.615400048675D+00   0.62500000000   2.00000000000   1.00000000000   1.00000000000
+ -0.758887167442D-01   1.75000000000   5.00000000000   1.00000000000   1.00000000000
+ -0.495508427543D+00   3.62500000000   1.00000000000   2.00000000000   1.00000000000
+ -0.168188311434D+00   3.62500000000   4.00000000000   2.00000000000   1.00000000000
+ -0.614097127578D-01  14.50000000000   3.00000000000   3.00000000000   1.00000000000
+  0.377274612430D-01  12.00000000000   4.00000000000   3.00000000000   1.00000000000
+
+
+@EOS               !equation of state specification
+ECS  Extended Corresponding States model w/ T-dependent shape factors.
+?LITERATURE REFERENCE \
+?predicted using ECS method
+? Huber, M.L. and Ely, J.F.,
+? "A predictive extended corresponding states model for pure and mixed
+? refrigerants including an equation of state for R134a,"
+? Int. J. Refrigeration, 17:18-31, 1994.\
+?\
+?DATA SOURCES\
+? Comparisons with recommended data from TDE, version Sept. 2004, for saturation boundary from 240-520K
+? vapor pressure: 1.8%, saturated liquid density: 1.0%
+?\
+!end of info section
+165.30             !lower temperature limit [K]
+600.0              !upper temperature limit [K]
+50000.0            !upper pressure limit [kPa]
+10.00              !maximum density [mol/L]
+CPP                !pointer to Cp0 model
+C12.fld
+FEQ                !pointer to reference fluid model
+0.574              !acentric factor for c12 used in shape factor correlation
+0.2497             !critical compressibility for c12 used in correlation
+0.30               !acentric factor for fluid used in shape factor correlation
+543.8              !critical temperature [K]
+2570               !critical pressure [kPa]
+2.14               !critical density [mol/L]
+2                        !number of temperature coefficients for 'f' shape factor
+ 0.3657920       0       !alpha1 of Huber & Ely
+-0.5560870       1       !alpha2 of Huber & Ely (log(Tr) term)
+1                        !number of density coefficients for 'f' shape factor
+3.511360d-02     1       !rho coefficient and power in temperature
+2                        !number of temperature coefficients for 'h' shape factor
+-0.7118060       0       !beta1 of Huber & Ely
+-0.22026800      1       !beta2 of Huber & Ely (log(Tr) term)
+0                        !number of density coefficients for 'h' shape factor
+
+
+#AUX               !auxiliary model specification
+CPP  ideal gas heat capacity function
+?LITERATURE REFERENCES \
+? Coefficients from TRC Thermodynamic Properties of Substances in the Ideal Gas State
+? Version 1.0M, (1994)
+!end of info section
+165.30             !lower temperature limit [K]
+1000.0             !upper temperature limit [K]
+0.0                !upper pressure limit [kPa]
+0.0                !maximum density [mol/L]
+1.0          8.314472                  !reducing parameters for T, Cp0
+  5  0    0  0    0  0  0              !Nterms:  polynomial, exponential, cosh, sinh
+0.384                    0.00                  !c(i), power of T
+77.059d-3                   1.00
+0.665d-05                   2.00
+-5.565d-8	                3.00
+2.619d-11                   4.00
+
+
+@EOS
+PRT  translated Peng-Robinson equation
+?LITERATURE REFERENCES \
+?  volume translation of Peng Robinson EOS
+?  translation computed so that sat. liquid density at Tr=0.7 matches FEQ  Helmholtz equation
+?  of state for isooctane of Lemmon (2004).
+!end of info section
+165.3              !lower temperature limit [K]
+1000.              !upper temperature limit [K]
+100000.0           !upper pressure limit [kPa]
+6.96               !maximum density [mol/L]
+CPP                !pointer to Cp0 model
+114.2285           !molecular weight [g/mol]
+0.303              !acentric factor from preliminary FEQ EOS
+543.8              !critical temperature [K]
+2560               !critical pressure [kPa]  from preliminary FEQ EOS
+2.22               !critical density [mol/L] from preliminary FEQ EOS
+8.314472           !gas constant [J/mol-K]
+1                  !Number of parameters
+-0.0058658
+
+
+#TRN               !transport model specification
+ECS  Extended Corresponding States model (dodecane reference).
+?LITERATURE REFERENCES \
+? model uses method described in the following references
+?Klein, S.A., McLinden, M.O., and Laesecke, A.,
+? "An improved extended corresponding states method for estimation of
+? viscosity of pure refrigerants and mixtures,"
+? Int. J. Refrigeration, 20:208-217, 1997.
+?\
+?McLinden, M.O., Klein, S.A., and Perkins, R.A.,
+? "An extended corresponding states model for the thermal conductivity
+? of refrigerants and refrigerant mixtures,"
+? Int. J. Refrigeration, 23:43-63, 2000.
+?\
+?DATA SOURCES FOR THERMAL CONDUCTIVITY\
+? Watanabe, H., "Thermal conductivity and thermal diffusivity of sixteen isomers of
+? Alkanes: CnH2n+2 (n=6 to 8)", JCVED 2003, 48, 124-136.
+?\
+?Average absolute deviations of the fit from the experimental data were:
+?   Watanabe(2003): avg 0.36% (max 0.73)
+?
+?DATA SOURCES FOR VISCOSITY\
+? Padua, A.A.H., Fareleira, J.M.N.A., and Calado, J.C.G., "Density and Viscosity
+?  Measurements of 2,2,4-Trimethylpentane (isooctane) from 198 K to 348 K and up to 100 MPa",
+? JCED 1996, 41, 1488-1494.
+?
+? Gomez-Diaz, D., Mejuto, J.C., Navaza, J.M., "Physicochemical Properties of Liquid
+? Mixtures. 1. Viscosity, density, surface tension and refractive index of cyclohexane +
+? 2,2,4-trimethylpentane binary liquid systems form 25 to 50 C, JCED 2001, 46(3) 720-724.
+?
+?Average absolute deviations of the fit from the experimental data were:
+?   Padua(1996): avg 0.59% (max 1.11) comparisons at atmospheric pressure only
+?   Gomez-Diaz (2001); avg: 0.11% (max 0.24)
+?\
+?The Lennard-Jones parameters are estimated using the method of Chung.\
+?\
+!end of info section
+165.30             !lower temperature limit [K]
+600.0              !upper temperature limit [K]
+50000.0            !upper pressure limit [kPa]
+10.0               !maximum density [mol/L] (limit of ECS-thermo fit)
+FEQ c12.fld
+VS1                !model for reference fluid viscosity
+TC1                !model for reference fluid thermal conductivity
+1                  !Lennard-Jones flag (0 or 1) (0 => use estimates)
+0.6276             !Lennard-Jones coefficient Sigma [nm]
+431.91             !L-J coefficient epsilon/kB [K]
+1  0  0            !number of terms in f_int term in Eucken correlation, spare1, spare 2
+1.3200d-3   0.0   0.0   0.0  !coeff, power of T, spare 1, spare 2
+2  0  0                      !number of terms in psi (visc shape factor): poly,spare1,spare2
+1.02578     0.0   0.0   0.0  !coeff, power of Tr, power of Dr, spare
+1.70077d-03 0.0   1.0   0.0  !coeff, power of Tr, power of Dr, spare
+2  0  0                      !number of terms in psi (thcon shape factor): poly,spare1,spare2
+0.2568530   0.0   0.0   0.0  !coeff, power of Tr, power of Dr, spare
+0.1966590   0.0   1.0   0.0  !coeff, power of Tr, power of Dr, spare
+TK6                                !pointer to critical enhancement auxiliary function
+
+
+#AUX               !thermal conductivity critical enhancement model
+TK6  simplified thermal conductivity critical enhancement of Olchowy and Sengers
+?LITERATURE REFERENCE \
+?Olchowy, G.A. and Sengers, J.V.,
+? "A simplified representation for the thermal conductivity of fluids in the
+? critical region,"
+? Int. J. Thermophysics, 10:417-426, 1989.
+?\
+?as applied to CO2 by:
+?\
+?Vesovic, V., Wakeham, W.A., Olchowy, G.A., Sengers, J.V., Watson, J.T.R.
+? and Millat, J.,
+? "The transport properties of carbon dioxide,"
+? J. Phys. Chem. Ref. Data, 19:763-808, 1990.
+?\
+!end of info section
+165.30             !lower temperature limit [K]
+600.0              !upper temperature limit [K]
+50000.0            !upper pressure limit [kPa]
+10.0               !maximum density [mol/L]
+9  0  0  0         !# terms:  CO2-terms, spare, spare, spare
+1.0     1.0     1.0      !reducing par for T, rho, tcx (mW/m-K)
+ 0.630d+00         !gnu (universal exponent)
+ 1.2415d+00        !gamma (universal exponent)
+ 1.01d+00          !R0 (universal amplitude)
+ 0.065d+00         !z (universal exponent--not used for t.c., only viscosity)
+ 1.00d+00          !c (constant in viscosity eqn = 1/[2 - (alpha + gamma)/(2*nu)], but often set to 1)
+ 1.5d-10           !xi0 (amplitude) [m]
+ 0.052d+00         !gam0 (amplitude) [-]
+ 0.5d-09           !qd_inverse (modified effective cutoff parameter) [m] generic number, not fit to data
+ 815.85d+00        !tref (reference temperature)=1.5*Tc [K]
+
+
+#STN        !surface tension specification
+ST1  surface tension model
+?LITERATURE REFERENCE \
+? Coefficients from NIST ThermDataEngine (TDE) PPDS 14 formulation, version sept 2004
+!end of info section
+165.30             !lower temperature limit [K]
+543.87             !upper temperature limit [K]
+0.0                !(dummy) upper pressure limit
+0.0                !(dummy) maximum density
+2                           !number of terms in surface tension model
+543.87                      !critical temperature used in fit (dummy)
+0.0476182     1.1914        !sigma0 and n
+5.992036d-17  2.1914        != sigma0 * sigma1
+@END
+c        1         2         3         4         5         6         7         8
+c2345678901234567890123456789012345678901234567890123456789012345678901234567890

@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+//dynamicFvMesh      staticFvMesh;
+dynamicFvMesh      pacManTopoFvMesh3;
+
+pacManTopoFvMesh3Coeffs
+{
+    frontFaces      movingFaces;
+     movingCells     movingCells;
+
+    solidBodyMotionFunction   needleMotion;
+
+    needleMotionCoeffs
+    {
+          profileFile  "./constant/pistonStroke.dat";
+          axis   (-1 0 0);
+//          sideProfileFile "./constant/pistonStrokeSide.dat";
+    } 
+ 
+
+    front
+    {
+        minThickness        1.5e-6;//1.5e-7;
+        maxThickness        38e-6;// 5e-6;
+    }
+
+}
+
+
+// ************************************************************************* //

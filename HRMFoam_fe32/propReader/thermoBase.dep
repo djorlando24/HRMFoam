@@ -1,0 +1,6 @@
+$(OBJECTS_DIR)/thermoBase.o: propReader/thermoBase.dep
+propReader/thermoBase.dep: propReader/thermoBase.C
+$(OBJECTS_DIR)/thermoBase.o: $(EXE_DEP)
+$(OBJECTS_DIR)/thermoBase.o:
+	@SOURCE_DIR=propReader
+	SOURCE=propReader/thermoBase.C ; $(Ctoo)

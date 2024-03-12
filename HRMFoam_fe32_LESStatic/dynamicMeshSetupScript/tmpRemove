@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Source tutorial clean functions
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+#checkDir=$(pwd|grep 'run/');
+#if [ -z $checkDir ] 
+#then
+#  echo "Are you sure you're in the right directory?"
+#else
+   # Check current directory
+   baseDir=$(pwd)
+
+   # Check for processor directories
+   for i in `find -name 'processor*'`;
+   do
+      cd $i
+      cleanTimeDirectories
+      rm -rf ./constant/eMesh > /dev/null 2>&1
+      rm -rf ./VTK > /dev/null 2>&1
+      cd $baseDir
+   done
+
+   # Clean out time directories
+   cleanTimeDirectories
+
+   # Delete eMesh and VTK directories
+   rm -rf ./constant/eMesh > /dev/null 2>&1
+   rm -rf ./VTK > /dev/null 2>&1
+   
+   #for i in $( ls ); 
+   #do
+   #  test=$(echo $i|awk '{
+   #  if(($1!="constant")&&($1!="system")&&($1!="0"))
+   #    print "true";
+   #  else
+   #    print "false";
+   #  }')
+   #  if [ $test = "true" ]; then
+   #     echo $i #rm -rf $i
+   #  fi
+   #done
+#fi
