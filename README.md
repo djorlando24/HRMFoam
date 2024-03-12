@@ -75,3 +75,12 @@ REFPROP simple (single component or ideal mixture) property table generator.
 #### Wedge_Throttle_kEps
 Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
 Uses k-Epsilon URANS but Sigma Y is disabled.
+
+#### Wedge_Throttle_kEPS+SY
+Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
+Uses k-Epsilon URANS with Sigma Y enabled.
+
+#### Wedge_Throttle_LES
+Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
+Uses WALE LES, which is technically inappropriate for a 2D geometry but this serves as a technical demonstration that WALE LES works with HRMFoam.
+Sigma Y is disabled, and is currently not supported with LES.
