@@ -1,0 +1,125 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Copyright held by original author
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+License
+    This file is part of OpenFOAM.
+
+    OpenFOAM is free software; you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the
+    Free Software Foundation; either version 2 of the License, or (at your
+    option) any later version.
+
+    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+    for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with OpenFOAM; if not, write to the Free Software Foundation,
+    Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+
+Class
+    Foam::injNeedleTopoFvMesh
+
+Description
+    Linear valve topo class with layering action.
+
+SourceFiles
+    injNeedleTopoFvMesh.C
+
+\*---------------------------------------------------------------------------*/
+
+#ifndef injNeedleTopoFvMesh_H
+#define injNeedleTopoFvMesh_H
+
+#include "topoChangerFvMesh.H"
+#include "motionSolver.H"
+#include "interpolationTable.H"
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace Foam
+{
+
+/*---------------------------------------------------------------------------*\
+                       Class injNeedleTopoFvMesh Declaration
+\*---------------------------------------------------------------------------*/
+
+class injNeedleTopoFvMesh
+:
+    public topoChangerFvMesh
+{
+    // Private data
+
+        //- Motion dictionary
+        dictionary motionDict_;
+
+
+    // Private Member Functions
+
+        //- Disallow default bitwise copy construct
+        injNeedleTopoFvMesh(const injNeedleTopoFvMesh&);
+
+        //- Disallow default bitwise assignment
+        void operator=(const injNeedleTopoFvMesh&);
+
+
+        //- Add valve layering zones and modifiers
+        void addZonesAndModifiers();
+
+        //- Make layering modifiers live
+        void makeLayersLive();
+
+        //- Make sliding modifiers live
+        void makeSlidersLive();
+
+        //- Return true if sliders are attached
+        bool attached() const;
+
+        //- Return new point field
+        tmp<pointField> newPoints() const;
+
+        //- Axis of displacement
+        vector axis_;
+
+        //- Interpolation table
+        interpolationTable<scalar> table_;
+
+
+public:
+
+    //- Runtime type information
+    TypeName("injNeedleTopoFvMesh");
+
+
+    // Constructors
+
+        //- Construct from database
+        explicit injNeedleTopoFvMesh(const IOobject& io);
+
+
+    // Destructor
+
+        virtual ~injNeedleTopoFvMesh();
+
+
+    // Member Functions
+
+        //- Update the mesh for both mesh motion and topology change
+        virtual bool update();
+};
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace Foam
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif
+
+// ************************************************************************* //

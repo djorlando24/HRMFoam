@@ -147,38 +147,13 @@ void isoThermHFvPatchScalarField::updateCoeffs()
    const IOdictionary& thermophysicalProperties = this->db().objectRegistry::lookupObject<IOdictionary>("thermophysicalProperties");
    const refprop& tPoint =
         this->db().objectRegistry::lookupObject<refprop>("tPoint");
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField
-   (
-        phiName_,
-        reinterpret_cast<const surfaceScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
 
-   const fvPatchField<scalar>& P = this->patch().lookupPatchField
-   (
-        "p",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   const fvPatchField<scalar>& P = this->patch().lookupPatchField<volScalarField>("p");
 
-   const fvPatchField<scalar>& X = this->patch().lookupPatchField
-   (
-        "x",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
-   const fvPatchField<scalar>& Y = this->patch().lookupPatchField
-   (
-        "y",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
-   const fvPatchField<scalar>& T = this->patch().lookupPatchField
-   (
-        "T",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   const fvPatchField<scalar>& X = this->patch().lookupPatchField<volScalarField>("x");
+   const fvPatchField<scalar>& Y = this->patch().lookupPatchField<volScalarField>("y");
+   const fvPatchField<scalar>& T = this->patch().lookupPatchField<volScalarField>("T");
 
 
    dimensionedScalar hDatum("hDatum", thermophysicalProperties);

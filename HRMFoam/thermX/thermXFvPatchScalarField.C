@@ -142,34 +142,13 @@ void thermXFvPatchScalarField::updateCoeffs()
    const thermoBase& tPoint =
         this->db().objectRegistry::lookupObject<thermoBase>("tPoint");
 
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField
-   (
-        phiName_,
-        reinterpret_cast<const surfaceScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
 
-   const fvPatchField<scalar>& P = this->patch().lookupPatchField
-   (
-        "p",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   const fvPatchField<scalar>& P = this->patch().lookupPatchField<volScalarField>("p");
 
-   const fvPatchField<scalar>& H = this->patch().lookupPatchField
-   (
-        "h",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   const fvPatchField<scalar>& H = this->patch().lookupPatchField<volScalarField>("h");
 
-
-         const fvPatchField<scalar>& X = this->patch().lookupPatchField
-   (
-        "x",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   const fvPatchField<scalar>& X = this->patch().lookupPatchField<volScalarField>("x");
    
    
    Field<scalar>& patchField = *this;

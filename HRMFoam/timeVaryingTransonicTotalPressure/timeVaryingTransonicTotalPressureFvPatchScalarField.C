@@ -149,35 +149,13 @@ void timeVaryingTransonicTotalPressureFvPatchScalarField::updateCoeffs()
 
    p0_ = timeSeries_(this->db().time().timeOutputValue());
 
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField
-   (
-        phiName_,
-        reinterpret_cast<const surfaceScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
 
-   const fvPatchField<scalar>& psi = this->patch().lookupPatchField
-   (
-        "thermo:psi",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
+   const fvPatchField<scalar>& psi = this->patch().lookupPatchField<volScalarField>("thermo:psi");
 
+   const fvPatchField<scalar>& rho = this->patch().lookupPatchField<volScalarField>("rho");
 
-         const fvPatchField<scalar>& rho = this->patch().lookupPatchField
-   (
-        "rho",
-        reinterpret_cast<const volScalarField*>(NULL),
-        reinterpret_cast<const scalar*>(NULL)
-   );
-
-
-         const fvPatchField<vector>& Up = this->patch().lookupPatchField
-   (
-        "U",
-        reinterpret_cast<const volVectorField*>(NULL),
-        reinterpret_cast<const vector*>(NULL)
-   );
+   const fvPatchField<vector>& Up = this->patch().lookupPatchField<volVectorField>("U");
 
    // BC = valueFraction*refValue
    // + (1-valueFraction)*(internalValue+refGrad/deltaCoeff)

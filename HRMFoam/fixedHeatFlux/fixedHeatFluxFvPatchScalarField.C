@@ -105,26 +105,11 @@ void Foam::fixedHeatFluxFvPatchScalarField::updateCoeffs()
         return;
     }
 
-  const fvPatchField<scalar>& x = this->patch().lookupPatchField
-      (
-       "x",
-       reinterpret_cast<const volScalarField*>(NULL),
-       reinterpret_cast<const scalar*>(NULL)
-       );
+  const fvPatchField<scalar>& x = this->patch().lookupPatchField<volScalarField>("x");
 
-  const fvPatchField<scalar>& y = this->patch().lookupPatchField
-      (
-       "y",
-       reinterpret_cast<const volScalarField*>(NULL),
-       reinterpret_cast<const scalar*>(NULL)
-       );
+  const fvPatchField<scalar>& y = this->patch().lookupPatchField<volScalarField>("y");
 
-  const fvPatchField<scalar>& K = this->patch().lookupPatchField
-      (
-       "K",
-       reinterpret_cast<const volScalarField*>(NULL),
-       reinterpret_cast<const scalar*>(NULL)
-       );
+  const fvPatchField<scalar>& K = this->patch().lookupPatchField<volScalarField>("K");
 
 
     const IOdictionary& thermProps =
@@ -146,12 +131,7 @@ void Foam::fixedHeatFluxFvPatchScalarField::updateCoeffs()
 
     if (x.db().foundObject<volScalarField>("alphat"))
     {
-      const fvPatchField<scalar>& alphat = this->patch().lookupPatchField
-      (
-       "alphat",
-       reinterpret_cast<const volScalarField*>(NULL),
-       reinterpret_cast<const scalar*>(NULL)
-       );
+      const fvPatchField<scalar>& alphat = this->patch().lookupPatchField<volScalarField>("alphat");
 
       alphaMix += alphat;
     }

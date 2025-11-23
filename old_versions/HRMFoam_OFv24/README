@@ -1,0 +1,15 @@
+# TODO
+
+## missing functionality
+
+- mpm.morphing()
+- SBMF.velocity()
+
+## refactoring
+
+- modelCalc -> phaseSystem ?
+- buildBoundaryList -> only used by computeMassFlux
+  - can be done more simply since all (non-processor patches) are sync'd
+- use pimpleControl
+
+

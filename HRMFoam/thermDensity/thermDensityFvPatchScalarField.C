@@ -151,49 +151,49 @@ namespace Foam
 
     Switch comp(thermProps.lookup("compressible"));
 
-    fvsPatchField<scalar> phip = this->patch().lookupPatchField
-      (
+    fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+     /* (
        phiName_,
        reinterpret_cast<const surfaceScalarField*>(NULL),
        reinterpret_cast<const scalar*>(NULL)
-       );
+       );*/
 
-    const fvPatchField<scalar>& P = this->patch().lookupPatchField
-      (
+    const fvPatchField<scalar>& P = this->patch().lookupPatchField<volScalarField>("p");
+     /* (
        "p",
        reinterpret_cast<const volScalarField*>(NULL),
        reinterpret_cast<const scalar*>(NULL)
-       );
+       );*/
 
-    const fvPatchField<scalar>& H = this->patch().lookupPatchField
-      (
+    const fvPatchField<scalar>& H = this->patch().lookupPatchField<volScalarField>("h");
+     /* (
        "h",
        reinterpret_cast<const volScalarField*>(NULL),
        reinterpret_cast<const scalar*>(NULL)
-       );
+       );*/
 
 
-    const fvPatchField<scalar>& x = this->patch().lookupPatchField
-      (
+    const fvPatchField<scalar>& x = this->patch().lookupPatchField<volScalarField>("x");
+     /* (
        "x",
        reinterpret_cast<const volScalarField*>(NULL),
        reinterpret_cast<const scalar*>(NULL)
-       );
+       );*/
 
 
-    const fvPatchField<scalar>& y = this->patch().lookupPatchField
-      (
+    const fvPatchField<scalar>& y = this->patch().lookupPatchField<volScalarField>("y");
+     /* (
        "y",
        reinterpret_cast<const volScalarField*>(NULL),
        reinterpret_cast<const scalar*>(NULL)
-       );
+       );*/
 
-     const fvPatchField<scalar>& pSat = this->patch().lookupPatchField
-      (
+     const fvPatchField<scalar>& pSat = this->patch().lookupPatchField<volScalarField>("pSat");
+      /*(
        "pSat",
        reinterpret_cast<const volScalarField*>(NULL),
        reinterpret_cast<const scalar*>(NULL)
-       );
+       );*/
 
     Field<scalar>& patchField = *this;
 
