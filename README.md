@@ -82,15 +82,23 @@ REFPROP simple (single component or ideal mixture) property table generator.
 
 ### Sample cases
 
-#### Wedge_Throttle_kEps
+#### 2d_r134a/Wedge_Throttle_kEps
 Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
 Uses k-Epsilon URANS but Sigma Y is disabled.
 
-#### Wedge_Throttle_kEPS+SY
+#### 2d_r134a/Wedge_Throttle_kEPS+SY
 Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
 Uses k-Epsilon URANS with Sigma Y enabled.
 
-#### Wedge_Throttle_LES
+#### 2d_r134a/Wedge_Throttle_LES
 Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
 Uses WALE LES, which is technically inappropriate for a 2D geometry but this serves as a technical demonstration that WALE LES works with HRMFoam.
 Sigma Y is disabled, and is currently not supported with LES.
+
+#### 3d_water/3d_flashingHotWaterNozzle 
+A 3d snappyHexMesh generated simulation for flashing hot water into 1 bar ambient pressure through an 0.4x1.0mm nozzle.
+Based on Ankit Rawat's PhD experiment.
+
+#### 3d_water/3d_mobyDick
+A 3d snappyHexMesh generated simulation for flash evaporation/cavitation of water from ~1.38 bar at ~80C into a partial vacuum in a narrow pipe,
+simulating the 'Moby Dick' experiments of Reocreux et al. Based on James Puli's PhD experiments.
