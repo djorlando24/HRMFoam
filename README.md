@@ -35,11 +35,15 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 ### HRMFoam versions
 
-#### HRMFoam (latest)
+#### HRMFoam_OFv25
 HRMFoam source code for ESI OpenFOAM v25xx. 
 Modified from previous version to account for API changes in fvPatchField.
 
-Currently supports:
+#### HRMFoam_OFv24
+HRMFoam source code for ESI OpenFOAM v22xx up to v24xx.
+
+#### Feature support
+Both OFv24 and OFv25 currently supports:
 - Sigma Y with URANS (k-Epsilon, k-Omega)
 - Noncondensible gas transport
 - LES, but not with Sigma Y.
@@ -47,12 +51,8 @@ Currently supports:
 Currently NOT supported
 - Sigma Y with Large Eddy Simulation (Omega Eqn needs to be updated)
 
-#### HRMFoam_OFv24
-HRMFoam source code for ESI OpenFOAM. Supports:
-- Sigma Y with URANS (k-Epsilon, k-Omega)
-- Noncondensible gas transport
-- LES, but not with Sigma Y.
-As currently used on LCRC Improv cluster.
+#### Old Versions
+Older versions of HRMFoam are contained in the old_versions subdirectory.
 
 #### HRMFoam_fe32
 
