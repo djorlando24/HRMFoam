@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| ========= | |
+| \\ / F ield | OpenFOAM: The Open Source CFD Toolbox |
+| \\ / O peration | Version: 2.0.1 |
+| \\ / A nd | Web: www.OpenFOAM.com |
+| \\/ M anipulation | |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+version 2.0;
+format ascii;
+class dictionary;
+object blockMeshDict;
+}
+
+convertToMeters 1.0e0;   // STL file is in m
+
+// Bounding box just large enough to capture STL
+vertices
+(
+	(-0.025  -0.025  -0.02)
+	( 0.025  -0.025  -0.02)
+	( 0.025   0.025  -0.02)
+	(-0.025   0.025  -0.02)
+	(-0.025  -0.025   0.01)
+	( 0.025  -0.025   0.01)
+	( 0.025   0.025   0.01)
+	(-0.025   0.025   0.01)
+);
+
+blocks
+(
+      // good 1mm scaling = (100 100 60)
+      hex (0 1 2 3 4 5 6 7) (75 75 45) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+      allBoundary
+      {
+            type patch;
+            faces (
+                  (0 1 2 3)
+		  (4 5 6 7)
+		  (7 6 2 3)
+   	          (4 5 1 0)
+		  (0 3 7 4)
+		  (1 2 6 5)
+            );
+      }
+
+      // For OF-2.x , comment out in OF-1.6-ext
+      inlet
+      {
+            type patch;
+            faces (
+            );
+      }
+
+      // For OF-2.x , comment out in OF-1.6-ext
+      outlet
+      {
+            type patch;
+            faces (
+            );
+      }
+
+      walls
+      {
+	    type wall;
+	    faces (
+	    );
+      }
+);
+
+mergePatchPairs
+(
+);

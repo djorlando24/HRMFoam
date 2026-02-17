@@ -1,0 +1,32 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      sigmaYconstants;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solveSigma           no; //yes;
+
+Sc                   Sc [0 0 0 0 0 0 0] 0.9;
+
+// https://www.engineeringtoolbox.com/water-surface-tension-d_597.html
+surfaceTension       surfaceTension [1 0 -2 0 0 0 0] 2.64E-2; 
+
+dnsAlpha             dnsAlpha [0 0 0 0 0 0 0] 2.4;
+
+nozDia               nozDia [0 1 0 0 0 0 0] 4E-4;
+
+C1                   C1 [0 0 0 0 0 0 0] 1.0;
+
+C2                   C2 [0 0 0 0 0 0 0] 1.0;
+
+// ************************************************************************* //

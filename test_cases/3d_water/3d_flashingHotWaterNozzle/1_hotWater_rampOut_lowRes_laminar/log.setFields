@@ -1,0 +1,41 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _8dbc61e11c-20241220 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=64;scalar=64"
+Exec   : setFields
+Date   : Feb 17 2026
+Time   : 13:53:14
+Host   : MU00155725X
+PID    : 62206
+I/O    : uncollated
+Case   : /Volumes/HRMFoam_2025/test_run/3d_water/3d_flashingHotWaterNozzle/1_hotWater_rampOut_laminar
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading setFieldsDict
+
+Setting volume field default values
+    - set internal values of volScalarField: y = 1
+    - set internal values of volScalarField: rho = 797
+
+Setting field region values
+
+    Adding cells with centres within cylinder, with point1 = (0 0 0.0005), point2 = (0 0 1), radius = 0.001
+    Selected 20097/1165741 cells
+    - set internal values of volScalarField: y = 0
+    - set internal values of volScalarField: rho = 796.673
+
+End
+

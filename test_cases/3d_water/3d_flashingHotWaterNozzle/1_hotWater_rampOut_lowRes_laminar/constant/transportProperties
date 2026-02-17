@@ -1,0 +1,32 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          transportProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+baroThermoType	linear;
+
+// Liquid Water at P_in, h_in has mu = 1e2 uPa.s
+// Water vapour at P_out has mu = 1.23e1 uPa.s
+// These are obtained from fluid.dat
+mul         mul   [1 -1 -1 0 0]  100e-6;
+muv         muv   [1 -1 -1 0 0]  12.3e-6;
+
+// ************************************************************************* //

@@ -1,0 +1,136 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          fvSolution;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+  
+p
+{
+    solver          GAMG ; //PBiCGStab;  // for large problems, use GAMG
+    smoother        symGaussSeidel;
+    preconditioner  DILU;
+    tolerance       1e-06;
+    relTol          0;
+    minIter         1;
+}
+
+
+U
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-08;
+    relTol          0;
+}
+
+
+h
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-05;
+    relTol          0;
+}
+
+
+rho
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-07;
+    relTol          0;
+    minIter         1;	
+}
+
+
+x
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-07;
+    relTol          0;
+    minIter         1;	
+}
+
+
+y
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-07;
+    relTol          0;
+    minIter         1;
+}
+
+
+epsilon
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-06;
+    relTol          0;
+}
+
+
+k
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-06;
+    relTol          0;
+}
+
+Omega
+{
+    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-5; //1e-06; // allow larger residuals during startup.
+    relTol          0;
+}
+
+	
+}
+
+PISO
+{
+
+    nCorrectors     15;
+    NRepsilon	    1.0e-04;
+    nNonOrthogonalCorrectors  0;
+	
+}
+
+ relaxationFactors
+{
+      p               0.1;
+      U               0.2;
+      pFlux           0.1;
+      k   0.15;
+      epsilon  0.15;
+      Omega 0.15;
+}
+
+
+
+// ************************************************************************* //
