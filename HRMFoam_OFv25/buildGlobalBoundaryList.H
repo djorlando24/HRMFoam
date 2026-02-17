@@ -55,7 +55,7 @@ wordList globalPatchNames;
     }
 
     // scatter the number of patches to each processor
-    Pstream::scatter(numPatches);
+    Pstream::broadcast(numPatches);
 
     // reset the list size on all other processors
     if (!Pstream::master())
@@ -72,7 +72,7 @@ wordList globalPatchNames;
         {
             tmpPatchName = sortablePatchNames[i];
         }
-        Pstream::scatter(tmpPatchName);
+        Pstream::broadcast(tmpPatchName);
         if(!Pstream::master())
         {
             sortablePatchNames[i] = tmpPatchName;

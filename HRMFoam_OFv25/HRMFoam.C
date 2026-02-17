@@ -75,8 +75,8 @@ int main(int argc, char *argv[])
         // Reread time controls from controlDict (and optionally maxCo.dat)
 #       include "readTimeControls_variableMaxCo.H"
         // Calculate Courant number based only on flux divided by density
-      //#       include "compressibleCourantNo.H"
-#       include "fe32Courant.H"
+#       include "compressibleCourantNo.H"
+//#       include "fe32Courant.H"
         // Choose the largest possible dT
 #       include "setDeltaT.H"
 
