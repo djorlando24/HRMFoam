@@ -38,9 +38,11 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 #### HRMFoam_OFv25
 HRMFoam source code for ESI OpenFOAM v25xx. 
 Modified from previous version to account for API changes in fvPatchField.
+Should be backward compatible with OFv24
 
 #### HRMFoam_OFv24
 HRMFoam source code for ESI OpenFOAM v22xx up to v24xx.
+Edits to the latest version are maintaned concurrently with this one, so both should work.
 
 #### Feature support
 Both OFv24 and OFv25 currently supports:
