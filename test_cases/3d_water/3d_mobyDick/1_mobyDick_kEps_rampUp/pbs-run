@@ -1,0 +1,23 @@
+#!/bin/bash -l
+#PBS -A XRayFuelSpray
+#PBS -l select=1:mpiprocs=128
+#PBS -l walltime=24:0:00
+
+#PBS -N mobyDick3
+#PBS -j oe
+#PBS -m ae
+#PBS -M daniel.duke@monash.edu
+
+cd $PBS_O_WORKDIR
+echo Jobid: $PBS_JOBID
+echo Running on host `hostname`
+echo Running on nodes `cat $PBS_NODEFILE`
+
+module load gcc/13.2.0
+module load openmpi gmp fftw3
+
+source $HOME/OpenFOAM/OpenFOAM-v2412/etc/bashrc 
+export WM_NCOMPPROCS=128
+export FOAM_EXTRA_LDFLAGS=$(mpicc -show | cut -d' ' -f2-)
+
+./runParallel

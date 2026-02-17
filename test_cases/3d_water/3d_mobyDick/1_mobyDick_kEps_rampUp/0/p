@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 25e3; // start with domain filled with fluid at backpressure 
+
+boundaryField
+{
+    walls
+    {
+        type            zeroGradient;
+    }
+
+    inlet            
+    {
+	type            timeVaryingTransonicTotalPressure;
+	phi             phiv;
+	p0              25e3;
+        value           uniform 25e3;
+	file            "inP.dat";
+    }
+
+    outlet
+    {
+        type            timeVaryingTransonicTotalPressure;
+        phi             phiv;
+        p0              25e3;
+        value           uniform 25e3;
+        file            "outP.dat";
+    }
+}
+
+// ************************************************************************* //

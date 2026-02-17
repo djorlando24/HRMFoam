@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      sigmaYconstants;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solveSigma           no;
+
+Sc                   Sc [0 0 0 0 0 0 0] 0.9;
+
+surfaceTension       surfaceTension [1 0 -2 0 0 0 0] 72E-3;
+
+dnsAlpha             dnsAlpha [0 0 0 0 0 0 0] 2.4;
+
+nozDia               nozDia [0 1 0 0 0 0 0] 3E-4; // From the grid.
+
+C1                   C1 [0 0 0 0 0 0 0] 1.0;
+
+C2                   C2 [0 0 0 0 0 0 0] 1.0;
+
+// ************************************************************************* //

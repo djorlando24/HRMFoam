@@ -1,0 +1,67 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          thermodynamicProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//                    kg  m  s  +  +  +  +
+
+//Pcrit           Pcrit [ 1 -1 -2  0  0  0  0] 22.0E6;
+
+theta_0      theta_0 [ 0  0  1  0  0  0  0] 3.84E-7;
+
+alphaFracExp        alphaFracExp [ 0  0  0  0  0  0  0] -0.54;
+
+pNonDimExp      pNonDimExp [ 0  0  0  0  0  0  0] -1.76;
+
+
+aL              aL   [ 0  1 -1  0  0  0  0] 1200.0;
+
+aV              aV   [ 0  1 -1  0  0  0  0] 300.0;
+
+pMin             pMin [ 1 -1 -2 0 0 0 0 ]  -1000;
+
+theta_floor       theta_floor [0   0  1  0  0  0  0] 1.0E-8;
+
+rhoMin            rhoMin [ 1 -3  0  0  0  0  0] 0.01;
+
+rhoNCgas        rhoNCgas [ 1 -3  0  0  0  0  0] 1.23;
+
+
+  Rgas          rhoNCgas [ 0 2 -2 -1 0  0  0  ] 287;
+
+ cpGas             cpGas [ 0 2 -2 -1 0  0  0  ] 1005;
+
+ hDatum           hDatum [ 0 2 -2  0 0  0  0  ]  98500;
+
+compressible yes;
+
+pcritical   yes;
+adiabatic   yes;
+thermModel   refprop;
+lBoundRho    yes;
+tracerON      no; // yes;
+
+tracerNames
+(
+);
+
+// ************************************************************************* //

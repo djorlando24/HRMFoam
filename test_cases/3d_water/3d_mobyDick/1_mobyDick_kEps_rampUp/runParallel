@@ -1,0 +1,18 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+#rm -f log.HRMFoam
+
+if [ -f log.HRMFoam ] ; then
+	move_logs.sh log.HRMFoam
+fi
+
+runApplication decomposePar
+runParallel $(getApplication)
+
+rm -vf log.reconstructPar
+runApplication reconstructPar
+
+#------------------------------------------------------------------------------

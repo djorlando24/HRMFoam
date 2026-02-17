@@ -1,0 +1,44 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      x;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0.0;
+
+boundaryField
+{
+    outlet
+    {
+        type            thermX; // inletOutlet;
+        inletValue      uniform 0.626906e-01; // therm. equilibrium quality at back pressure
+        value           uniform 0;
+    }
+
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    
+    walls
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //
