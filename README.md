@@ -82,6 +82,19 @@ REFPROP simple (single component or ideal mixture) property table generator.
 
 ### Sample cases
 
+Several test cases have been provided, in 2d and 3d geometries.
+The 3d cases will take quite some time to run and will need multiple processors.
+
+Git LFS is used to store the grids; to download these you will need to have git-lfs
+installed, i.e. `apt-get install git-lfs` on Ubuntu or `brew install git-lfs` on MacOS.
+Then run `git lfs install` once.
+
+More information: https://git-lfs.com
+
+#### 2d_r134a/Wedge_Throttle_laminar
+Sample case for an axisymmetric wedge of a throttled flow of R-134a.
+No turbulence model - minimal example.
+
 #### 2d_r134a/Wedge_Throttle_kEps
 Sample case for an axisymmetric wedge of a throttled flow of R-134a into air.
 Uses k-Epsilon URANS but Sigma Y is disabled.
