@@ -116,9 +116,14 @@ int main(int argc, char *argv[])
 #           include "yEqn.H"
 #           include "tracer.H"
 
-        if(!adiabatic)
+        if(adiabatic)
         {
-#           include "hEqn.H"
+//for adiabatic calcs where we aren't computing h, just use the fact that total enthalpy is conserved
+          h = h0-0.5*(U&U);
+        }
+      else
+        {
+#             include "hEqn.H"
         }
 
         //update all properties based on based on current pressure and enthalpy

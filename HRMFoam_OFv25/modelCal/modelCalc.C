@@ -370,7 +370,7 @@ modelCalc::modelCalc
 
    //these feature overwrites the inital density and quality fields to their equilibrium values
    //It only works starting at time 0. This cannot be done at restarts.
-   //If feature is not desired, set rhoOverwrite = false and/or xOverwrite in thermophysicalProperties
+   //If features are not desires, set rhoOverwrite = false and/or xOverwrite in thermophysicalProperties
    Switch rhoOverwrite("yes");
    rhoOverwrite.readIfPresent("rhoOverwrite", dict);
    if (U.time().timeName() == "0" && rhoOverwrite == 1)
@@ -430,20 +430,7 @@ tmp<volScalarField> modelCalc::getModel
      
      Liq_Mol_a_[celli] = thermPoint1->Liq_Mol_a();
      Vap_Mol_a_[celli] = thermPoint1->Vap_Mol_a();
-     
-     if (compressible_)
-       {
-	 if(pSat_[celli]>pres[celli]) //Extrapolate with specific volume to avoid negative rhoV at low pressures
-	 {
-		scalar vSat= 1/rhoV_[celli];
-		rhoV_[celli]= 1/(vSat - sqr(vSat)*psiv_.value()*(pres[celli]-pSat_[celli]));
-	 }
-	 else rhoV_[celli] =rhoV_[celli] + psiv_.value()*(pres[celli]-pSat_[celli]); //Otherwise extrapolate using density
 
-	 rhoL_[celli] = rhoL_[celli] + psil_.value()*(pres[celli]-pSat_[celli]);
-	 rhoV_[celli] = max(rhoV_[celli],rhoMin_.value());
-
-       }
 
      alphaFrac_[celli]=max
                    (
@@ -525,18 +512,6 @@ tmp<volScalarField> modelCalc::getModel
 
 	patchVap_Mol_a[faceI] = thermPoint1->Vap_Mol_a();
 
-        if (compressible_)
-        {
-          if(patchpSat[faceI]>patchP[faceI]) //Extrapolate with specific volume to avoid negative rhoV at low pressures
-	  {
-		scalar vSat= 1/patchrhoV[faceI];
-		patchrhoV[faceI]= 1/(vSat - sqr(vSat)*psiv_.value()*(patchP[faceI]-patchpSat[faceI]));
-	  }
-	  else patchrhoV[faceI] = patchrhoV[faceI] + psiv_.value()*(patchP[faceI]-patchpSat[faceI]); //Otherwise extrapolate using density
-
-          patchrhoL[faceI] = patchrhoL[faceI] + psil_.value()*(patchP[faceI]-patchpSat[faceI]);
-	  patchrhoV[faceI] = max( patchrhoV[faceI], rhoMin_.value() );
-        }
 
         patchalphaFrac[faceI]=max(min((patchx[faceI]*patchrhoL[faceI])
           /(patchrhoV[faceI] + patchx[faceI]*(patchrhoL[faceI]-patchrhoV[faceI]) ),1.0),0.0);
@@ -620,23 +595,6 @@ void Foam::modelCalc::calcRhoBar(const volScalarField& x, const volScalarField& 
       scalar rhoVCalc = thermPoint1->rhov(); //Uncorrected saturation densities
       scalar rhoLCalc = thermPoint1->rhol();
 
-      // make sure that pSat is up to date
-      pSat_[celli]=thermPoint1->pSat();
-      
-      if(compressible_) //Correct saturation densities for compressibility
-	{
-
-
-	 if(pSat_[celli]>p_[celli]) //Extrapolate with specific volume to avoid negative rhoV at low pressures
-	 {
-	   scalar vSat = 1/rhoVCalc;
-	   rhoVCalc = 1/(vSat - sqr(vSat)*psiv_.value()*(p_[celli]-pSat_[celli]));	   
-	 }
-	 else rhoVCalc += psiv_.value()*(p_[celli]-pSat_[celli]); //Otherwise extrapolate using density
-
-	 rhoLCalc += psil_.value()*(p_[celli]-pSat_[celli]);
-	 rhoVCalc = max(rhoVCalc,rhoMin_.value());
-	}
 	  rhoBar_[celli] = 1.0/(
 	       (
 		( thermPoint1->xbar()/max(rhoVCalc,SMALL) + (1-thermPoint1->xbar())/max(rhoLCalc,SMALL) )
@@ -644,19 +602,6 @@ void Foam::modelCalc::calcRhoBar(const volScalarField& x, const volScalarField& 
 					+ y[celli]/rhog_[celli]
 	       )
 				);
-
-	  // print out a sampling of values for debugging
-
-	  // if (rand() < 10000)
-	  //   {
-	  //     Info << "P=" << p_[celli]/1.0E6 <<" MPa    h="<<h[celli]<<" J/kg  xbar="<< thermPoint1->xbar()
-	  // 	   <<"  uncorrected rhoV="<<thermPoint1->rhov()<<"[kg/m^3]    "
-	  // 	   << "  corrected rhoV="<<rhoVCalc
-	  // 	   <<"[kg/m^3]   rhoL="<<rhoLCalc<<"[kg/m^3]  pSat="<<pSat_[celli]		
-	  // 	   <<"[Pa]   rhoBar="<<rhoBar_[celli]<<"[kg/m^3]"<<endl;   
-
-	  //   }
-	    
             // DPS--I think this is OK for when we are above the fluid.dat
             // since the pSat value will top out at the same place as the
             // rho value.
@@ -669,14 +614,13 @@ void Foam::modelCalc::calcRhoBar(const volScalarField& x, const volScalarField& 
     }
     forAll(mesh_.boundary(), patchI)
     {
-      const fvPatch& cPatch = mesh_.boundary()[patchI];
-      const fvPatchScalarField& patchP = p_.boundaryField()[patchI];
-      //  const  fvPatchScalarField& patchPSat = pSat_.boundaryField()[patchI];
-      fvPatchScalarField& patchPSat = pSat_.boundaryFieldRef()[patchI];
-      const fvPatchScalarField& patchY = y.boundaryField()[patchI];
-      const fvPatchScalarField& patchH = h.boundaryField()[patchI];
-      const fvPatchScalarField& patchX = x.boundaryField()[patchI];
-      const fvPatchScalarField& patchRhoG = rhog_.boundaryField()[patchI];
+        const fvPatch& cPatch = mesh_.boundary()[patchI];
+	      const fvPatchScalarField& patchP = p_.boundaryField()[patchI];
+	      //const fvPatchScalarField& patchPSat = pSat_.boundaryField()[patchI]; // unused variable?
+        const fvPatchScalarField& patchY = y.boundaryField()[patchI];
+	      const fvPatchScalarField& patchH = h.boundaryField()[patchI];
+	      const fvPatchScalarField& patchX = x.boundaryField()[patchI];
+        const fvPatchScalarField& patchRhoG = rhog_.boundaryField()[patchI];
 
         fvPatchScalarField& patchrhoBar = rhoBar_.boundaryFieldRef()[patchI];
 
@@ -685,25 +629,6 @@ void Foam::modelCalc::calcRhoBar(const volScalarField& x, const volScalarField& 
             thermPoint1->getProperties(patchP[faceI],patchH[faceI],patchX[faceI]);
 	          scalar rhoVCalc = thermPoint1->rhov(); //Uncorrected saturation densities
 	          scalar rhoLCalc = thermPoint1->rhol();
-
-		        // make sure that pSat is up to date
-		  patchPSat[faceI]=thermPoint1->pSat();
-      
-	          if(compressible_) //Correct saturation densities for compressibility
-	          {
-	              if(patchPSat[faceI]>patchP[faceI]) //Extrapolate with specific volume to avoid negative rhoV at low pressures
-        	      {
-		                scalar vSat = 1/rhoVCalc;
-		                rhoVCalc = 1/(vSat - sqr(vSat)*psiv_.value()*(patchP[faceI]-patchPSat[faceI]));
-	              }
-	              else
-                      {
-                               rhoVCalc += psiv_.value()*(patchP[faceI]-patchPSat[faceI]); //Otherwise extrapolate using density
-                      }
-
-	              rhoLCalc += psil_.value()*(patchP[faceI]-patchPSat[faceI]);
-	              rhoVCalc = max(rhoVCalc,rhoMin_.value());
-	          }
 
             patchrhoBar[faceI]=
                 1.0

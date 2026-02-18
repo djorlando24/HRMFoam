@@ -69,6 +69,9 @@
         mesh
     );
 
+//for adiabatic calcs where we aren't computing h, just use h = h0-0.5*(U&U)
+volScalarField h0=h;    
+
 const dimensionedScalar cp_fake ("cp_fake", dimensionSet(0, 2, -2, -1, 0, 0, 0) ,1.0E3);
 
 {
