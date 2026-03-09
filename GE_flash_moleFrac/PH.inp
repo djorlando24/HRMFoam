@@ -1,1 +1,4 @@
-SV_GEflash_inputs/r134a_e8/PH.inp
+#Tref(K)     Href(j/kg)
+273          0
+P_start   5000   P_end   600000    P_step   1000.00
+H_start   -90000      H_end   150000   H_step  5000.00

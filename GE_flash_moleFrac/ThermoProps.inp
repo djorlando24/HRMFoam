@@ -1,1 +1,15 @@
-SV_GEflash_inputs/r134a_e8/ThermoProps.inp
+Equation of State :1(RK),2(SRK),3(Peng-Robinson),4(Peng-Robinson-Gasem), 5(PRSV), 6(modified Rackett) 
+6
+Ethanol############################################################################################
+Tcrit(K)  Pcrit(Pa)  Volcrit(m^3/mol)     Molecular Wt(kg/kmol)   moleFraction   
+513.9     6140E3     167E-6 		    46.069  		   0.23
+
+Accentric Factor   K1 (For PRSV)   ZRA(For modified Rackett)       Specific Heat(CP)   Viscosity     Conductivity
+0.644		-0.16816		0.2502				2.38		0.000655	0.15
+
+R-1234ze##############################################################################################
+Tcrit(K)  Pcrit(Pa)  Volcrit(m^3/mol)   Molecular Wt(kg/kmol)   moleFraction   
+382.52		3.63E6	2.33E-4		114.04			0.77
+
+Accentric Factor    K1 (For PRSV)    ZRA(For modified Rackett)     Specific Heat(CP)     Viscosity    Conductivity
+0.313144006762486		0		0.263081613406592   1.39    0.000199    0.013996

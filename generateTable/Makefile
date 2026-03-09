@@ -1,7 +1,7 @@
 CC=g++
 #FC=g77  -g -r8
-#FC=gfortran -O3 -fbounds-check -fdefault-real-8
-FC=gfortran -fopenmp -O3 -fbounds-check -fdefault-real-8
+FC=gfortran -O3 -fbounds-check -fdefault-real-8
+#FC=gfortran -fopenmp -O3 -fbounds-check -fdefault-real-8
 #FC=pathf90 -g -static
 OBJS= main.o gentab.o DISTILL.o liqDat.o  CORE_ANC.o  CORE_CPP.o  CORE_ECS.o  CORE_MLT.o  CORE_QUI.o  CORE_PR.o	\
       FLASH2.o  IDEALGAS.o  MIX_HMX.o   REALGAS.o  SETUP2.o  TRNS_ECS.o  TRNS_TCX.o	\
