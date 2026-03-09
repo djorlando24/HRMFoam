@@ -51,7 +51,7 @@ if [ ! -d 2e-08 ] ; then
 fi
 
 # transform co-ordinates (move origin & scale)
-#transformPoints -translate '(-44 -4.5 -4.5)' >> log.transformPoints.translate
+transformPoints -translate '(0 0 2.5)' >> log.transformPoints.translate
 transformPoints -scale '(1e-3 1e-3 1e-3)' >> log.transformPoints.scale # convert base unit to mm
 
 # Check mesh integrity

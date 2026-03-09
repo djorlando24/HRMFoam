@@ -18,20 +18,20 @@ scale 1.0e0;   // STL file is in m
 // Bounding box just large enough to capture STL
 vertices
 (
-	(-30  -30  -45)
-	( 30  -30  -45)
-	( 30   30  -45)
-	(-30   30  -45)
-	(-30  -30   15)
-	( 30  -30   15)
-	( 30   30   15)
-	(-30   30   15)
+	(-25  -25  -40)
+	( 25  -25  -40)
+	( 25   25  -40)
+	(-25   25  -40)
+	(-25  -25   10)
+	( 25  -25   10)
+	( 25   25   10)
+	(-25   25   10)
 );
 
 blocks
 (
-      // good 1mm scaling = (60 60 60)
-      hex (0 1 2 3 4 5 6 7) (80 80 80) simpleGrading (1 1 1)
+      // good 1mm scaling = (50 50 52)
+      hex (0 1 2 3 4 5 6 7) (60 60 60) simpleGrading (1 1 1)
 );
 
 edges

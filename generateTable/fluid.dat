@@ -1,6 +1,6 @@
    fluids/224TMP.FLD  1.0000          Fluid Data
-P_start       1000.0 P_end    1000000.0 Step       1000.0
+P_start      10000.0 P_end    1000000.0 Step       1000.0
 H_start     100000.0 H_end     300000.0 Step      10000.0
- Points       21000  P_res        1000  H_res          21
+ Points       20811  P_res         991  H_res          21
  CriticalPressure   2560000.00000000000000000000000000000      
 Pressure(Pa)     Enthalpy(J/Kg)     Quality        Density(kg/m3)  DensityVapor    DensityLiquid   Temperature(K)  Viscosity(Pa.s)      Conductivity     Cv(KJ/KgK)     Cp(KJ/KgK)    SoS(m/s)  PSat(Pa)

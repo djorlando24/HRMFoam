@@ -42,32 +42,32 @@ geometry
     refineOutside 
     {
         type searchableCylinder;
-        point1 (0 0 2.25);
-        point2 (0 0 -20);
+        point1 (0 0 -0.25);
+        point2 (0 0 -22.5);
         radius 15;
     }
 
     refineInside
     {
         type searchableCylinder;
-        point1 (0 0 21);
-        point2 (0 0 -11);
-        radius 6.25;
+        point1 (0 0 18.5);
+        point2 (0 0 -17.5);
+        radius 8;
     }
 
     refineInside2
     {
         type searchableCylinder;
-        point1 (0 0 1.5);
-        point2 (0 0 -3);
-        radius 1.5;
+        point1 (0 0 -2);
+        point2 (0 0 -7.5);
+        radius 3;
     }
 
     refineInside3
     {
         type searchableCylinder;
-        point1 (0 0 0.7);
-        point2 (0 0 -0.5);
+        point1 (0 0 -1.8);
+        point2 (0 0 -3.2);
         radius 0.3;
     }
 

@@ -1,26 +1,22 @@
-# Mesh generation for 3d printed ventilator splitter and restrictors
+# Mesh generation using snappyHexMesh
 
     author Daniel Duke <daniel.duke@monash.edu>
-    copyright (c) 2020 Daniel Duke
+    copyright (c) 2026 Daniel Duke
     license GPL-3.0+
     version 1.0.0
-    date 30/07/2020
-        __   ____________    ___    ______
-       / /  /_  ____ __  \  /   |  / ____/
-      / /    / /   / /_/ / / /| | / /
-     / /___ / /   / _, _/ / ___ |/ /_________
-    /_____//_/   /_/ |__\/_/  |_|\__________/
+    date 20/02/2026
 
-    Laboratory for Turbulence Research in Aerospace & Combustion (LTRAC)
+    Multiphase Flow Laboratory
     Monash University, Australia
 
 # User guide
 
-- This case was run using OpenFOAM-v1906, please see: https://www.openfoam.com/releases/openfoam-v1906/
-
-- This case is currently set up to mesh the 2mm restrictor. Swap out STL files in constant/triSurface as required.
+- Source geometry in constant/triSurface/*.stl
+Note that the geometry is in mm, which snappyHexMesh prefers.
+We will scale it down to m after mesh generation.
 
 - Base mesh resolution is governed by constant/polyMesh/blockMeshDict
+Also in mm to match the stl
 
 - Refinements and final resolution is governed by system/snappyHexMeshDict
 
