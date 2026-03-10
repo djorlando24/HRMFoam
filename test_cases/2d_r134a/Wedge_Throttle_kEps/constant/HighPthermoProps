@@ -1,47 +1,39 @@
-/*---------------------------------------------------------------------------*\
+/*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  1.0                                   |
-|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-
 FoamFile
 {
-    version         2.0;
-    format          ascii;
-
-    root            "";
-    case            "";
-    instance        "";
-    local           "";
-
-    class           dictionary;
-    object          thermodynamicProperties;
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      thermophysicalProperties;
 }
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//                    kg  m  s  +  +  +  +
 
+// These are the HRM Parameters from Downar-Zapolski et al. for the `high pressure' correlation.
+// Copy these over to your thermophysicalProperties dictionary to use them.
 
-theta_0      theta_0 [ 0  0  1  0  0  0  0] 3.84E-7;
+//                            kg  m  s  +  +  +  +
 
-alphaFracExp        alphaFracExp [ 0  0  0  0  0  0  0] -0.54;
+// HRM Parameters (do not change)
+theta_0              theta_0 [ 0  0  1  0  0  0  0] 3.84E-7;
+alphaFracExp    alphaFracExp [ 0  0  0  0  0  0  0] -0.54;
+pNonDimExp        pNonDimExp [ 0  0  0  0  0  0  0] -1.76;
 
-pNonDimExp      pNonDimExp [ 0  0  0  0  0  0  0] -1.76;
+// Sound speed
+aL                      aL   [ 0  1 -1  0  0  0  0] 1.0e15;
+aV                      aV   [ 0  1 -1  0  0  0  0] 1.0E15;
 
+// Bounding parameters
+theta_floor     theta_floor [0   0  1  0  0  0  0] 1.0E-11;
+rhoMin               rhoMin [ 1 -3  0  0  0  0  0] 0.01;
 
-aL              aL   [ 0  1 -1  0  0  0  0] 1.0e15;  // 1200.0;
-
-aV              aV   [ 0  1 -1  0  0  0  0] 1.0E15;  // 300.0;
-
-
-theta_floor 
-                  theta_floor [0   0  1  0  0  0  0] 1.0E-11;
-
-rhoMin            rhoMin [ 1 -3  0  0  0  0  0] 0.01;
-
+// Solver flags
 thermModel  refprop;
 lBoundRho  no;
 

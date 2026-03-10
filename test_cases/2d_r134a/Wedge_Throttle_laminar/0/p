@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  1.5                                   |
-|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -25,16 +25,9 @@ boundaryField
         type            zeroGradient;
     }
 
-    axis            
-    {
-//    type            zeroGradient;
-      type empty;
-    }
-
     outlet            
     {
-        //type            fixedValue;
-	type timeVaryingTransonicTotalPressure;
+	type            timeVaryingTransonicTotalPressure;
 	phi             phiv;
 	p0              1.0e6;
         value           uniform 1.0E6;
@@ -52,14 +45,20 @@ boundaryField
         value           uniform 1.0E6;
 
     }
+    
     frontAndBackPlanes_pos           
     {
         type            wedge;
     }
-
+    
     frontAndBackPlanes_neg           
     {
         type            wedge;
+    }
+    
+    axis            
+    {
+      type empty;
     }
 
 

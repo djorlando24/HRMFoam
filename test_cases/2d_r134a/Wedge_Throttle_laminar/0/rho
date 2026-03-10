@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  1.5                                   |
-|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -10,7 +10,7 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    object      p;
+    object      rho;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -20,6 +20,22 @@ internalField   uniform 1000;
 
 boundaryField
 {
+
+    inlet            
+    {
+
+        type    thermDensity;  
+        inletValue      uniform 1000.0;
+        value           uniform 1000.0;
+    }
+    
+    outlet
+    {
+        type    thermDensity;
+        inletValue     uniform 5;
+        value          uniform 1000;
+    }
+    
     slipWall       
     {
         type            zeroGradient;
@@ -35,16 +51,6 @@ boundaryField
         type            empty;
     }
 
-    inlet            
-    {
-
-      type    thermDensity;  
-        inletValue      uniform 1000.0;
-        value           uniform 1000.0; // 624.09;
-    }
-
-
-
     frontAndBackPlanes_pos           
     {
         type            wedge;
@@ -53,22 +59,7 @@ boundaryField
     frontAndBackPlanes_neg           
     {
         type            wedge;
-    }
-
-
-    outlet
-    {
-        type    thermDensity;
-        inletValue     uniform 5;
-        value          uniform 1000;
-/*
-
-        type    inletOutlet;
-        inletValue      uniform 5;
-        value           uniform 625.0;
-*/  
-    }
-  
+    }  
  
 }
 
