@@ -31,7 +31,7 @@ divSchemes
     div(phiv,p)     Gauss Gamma 1.0;
     div(phiv,rho)   Gauss Gamma 1.0;
     div(phi,p)      Gauss Gamma 1.0;
-    div(phi,h)      Gauss  Gamma 1.0;
+    div(phi,h)      Gauss Gamma 1.0;
     div(phi,U)      Gauss GammaV 1.0 ;
     div(U)          Gauss GammaV phi 1.0 ;
     div(phi,x)      Gauss Gamma 1.0;

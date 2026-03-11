@@ -1,8 +1,8 @@
-/*---------------------------------------------------------------------------*\
+/*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  1.0                                   |
-|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 
@@ -27,7 +27,7 @@ solvers
   
 p
 {
-    solver          GAMG ; //PBiCGStab;  // for large problems, use GAMG
+    solver          PBiCGStab;  // for large problems, use GAMG
     smoother        symGaussSeidel;
     preconditioner  DILU;
     tolerance       1e-06;
@@ -90,6 +90,7 @@ epsilon
     preconditioner  DILU;
     tolerance       1e-06;
     relTol          0;
+    minIter         1;	
 }
 
 
@@ -99,6 +100,7 @@ k
     preconditioner  DILU;
     tolerance       1e-06;
     relTol          0;
+    minIter         1;	
 }
 
 Omega
@@ -116,19 +118,19 @@ PISO
 {
 
     nCorrectors     15;
-    NRepsilon	    1.0e-04;
+    NRepsilon	    0.5e-04;
     nNonOrthogonalCorrectors  0;
 	
 }
 
  relaxationFactors
 {
-      p               0.1;
-      U               0.2;
-      pFlux           0.1;
+      p               0.3;
+      U               0.3;
+      pFlux           0.3;
       k   0.15;
       epsilon  0.15;
-      Omega 0.15;
+      Omega 0.25;
 }
 
 
