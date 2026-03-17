@@ -8,44 +8,7 @@ University of Massachusetts Amherst
 Repository maintainer: Dr Daniel Duke
 Department of Mechanical & Aerospace Engineering
 Monash University, Australia
-
-## References
-
-If you use HRMFoam in academic research, please cite one or more of the following as appropriate:
-
-- D. Schmidt, M. Corradini, and C. Rutland, “A Two-Dimensional, Non-Equilibrium Model of Flashing Nozzle Flow,” inProc. of 3rd ASME/JSME Joint Fluids Engineering Conference, FEDSM, 1999.
-
-For HRMFoam with Sigma-Y and/or noncondensible gas;
-
-- Rachakonda, S. K., Wang, Y., Jr, R. O. G., Moulai, M., Baldwin, E., Zhang, G., Parrish, S., Diwakar, R., Kuo, T.-W. & Schmidt, D. P. A computational approach to predict external spray characteristics for flashing and cavitating nozzles. International Journal of Multiphase Flow 106, 21–33 (2018).
-
-For HRMFoam with generateTable;
-
-- Neroorkar, K., Shields, B., Grover, R.O., Torres, A.P.,Schmidt, D., “Application of the Homogeneous Relaxation Model to Simulating Cavitating Flow of a Diesel Fuel”, SAE Paper 2012-01-1269, 2012.
-- Huber, M. L., Lemmon, E. W., Bell, I. H. & McLinden, M. O. The NIST REFPROP Database for Highly Accurate Properties of Industrially Important Fluids. Ind. Eng. Chem. Res. 61, 15449–15472 (2022).
-
-For HRMFoam with GEFlash;
-
-- Neroorkar, K., “Modeling of Flash Boiling Flows in Injectors with Gasoline-Ethanol Fuel Blends”. PhD thesis,The University of Massachusetts-Amherst, 2011.
-
-For OpenFOAM generally;
-
-- Weller, H., Tabor, G., Jasak, H., and Fureby, C., “Atensorial approach to computational continuum mechanicsusing object-oriented techniques”, Computers in Physics,vol. 12, no. 6, pp. 620–631, 1998.
-
-Other HRMFoam references;
-
-- Schmidt, D., Gopalakrishnan, S., and Jasak, H.,“Multidimensional Simulation of Thermal Non-Equilibrium Channel Flow,” Intl. J. of Multiphase Flow,vol. 36, pp. 284–292, 2010.
-- Gopalakrishnan, S. & Schmidt, D. P. A Computational Study of Flashing Flow in Fuel Injector Nozzles. SAE paper 2008-01–0141, (2008).
-- Schmidt, D. P., “Cavitation in Diesel Fuel InjectorNozzles”. PhD thesis, The University of Wisconsin-Madison, 1997.
-
-The Homogeneous Relaxation theory and useful historical data;
-
-- Downar-Zapolski, P., Bilicki, Z., Bolle, L. & Franco, J. The non-equilibrium relaxation model for one-dimensional flashing liquid flow. Int J Multiphas Flow 22, 473–483 (1996).
-- Zwart, P.J., Gerber, A.G., and Belamri, T., “A Two-PhaseFlow Model for Predicting Cavitation Dynamics”, In FifthInternational Conference on Multiphase Flow,Yokohama, Japan, 2004.
-- M. Reocreux, Contribution a letude des debits critiques en ecoulement diphasique eau-vapeur. PhD thesis, UniversiteScientifique et Medicale de Grenoble, France, 1974.
-- E. Winklhofer, E. Kull, E. Kelz, and A. Morozov, “Comprehensive hydraulic and flow field documentation in model throttleexperiments under cavitation conditions,” 17th Annual Conference on Liquid Atomization and Spray Systems, Zurich,Switzerland, September 2001, 2001. 
-- Downar-Zapolski, P., Bilicki, Z., Bolle, L., and Franco,F., “The Non-Equilibrium Relaxation Model for One-Dimensional Flashing Liquid Flow,” 3rd ASME/JSMEJoint Fluids Engineering Conference, vol. 208, no. 616,1999.
-- 
+ 
 
 ## License
 This file is part of HRMFoam, which includes software from OpenFOAM.
@@ -148,3 +111,40 @@ Based on Ankit Rawat's PhD experiment.
 #### 3d_water/3d_mobyDick
 A 3d snappyHexMesh generated simulation for flash evaporation/cavitation of water from ~1.38 bar at ~80C into a partial vacuum in a narrow pipe,
 simulating the 'Moby Dick' experiments of Reocreux et al. Based on James Puli's PhD experiments.
+
+## References
+
+If you use HRMFoam in academic research, please cite one or more of the following as appropriate:
+
+- D. Schmidt, M. Corradini, and C. Rutland, “A Two-Dimensional, Non-Equilibrium Model of Flashing Nozzle Flow,” inProc. of 3rd ASME/JSME Joint Fluids Engineering Conference, FEDSM, 1999.
+
+For HRMFoam with Sigma-Y and/or noncondensible gas;
+
+- Rachakonda, S. K., Wang, Y., Jr, R. O. G., Moulai, M., Baldwin, E., Zhang, G., Parrish, S., Diwakar, R., Kuo, T.-W. & Schmidt, D. P. A computational approach to predict external spray characteristics for flashing and cavitating nozzles. International Journal of Multiphase Flow 106, 21–33 (2018).
+
+For HRMFoam with generateTable;
+
+- Neroorkar, K., Shields, B., Grover, R.O., Torres, A.P.,Schmidt, D., “Application of the Homogeneous Relaxation Model to Simulating Cavitating Flow of a Diesel Fuel”, SAE Paper 2012-01-1269, 2012.
+- Huber, M. L., Lemmon, E. W., Bell, I. H. & McLinden, M. O. The NIST REFPROP Database for Highly Accurate Properties of Industrially Important Fluids. Ind. Eng. Chem. Res. 61, 15449–15472 (2022).
+
+For HRMFoam with GEFlash;
+
+- Neroorkar, K., “Modeling of Flash Boiling Flows in Injectors with Gasoline-Ethanol Fuel Blends”. PhD thesis,The University of Massachusetts-Amherst, 2011.
+
+For OpenFOAM generally;
+
+- Weller, H., Tabor, G., Jasak, H., and Fureby, C., “Atensorial approach to computational continuum mechanicsusing object-oriented techniques”, Computers in Physics,vol. 12, no. 6, pp. 620–631, 1998.
+
+Other HRMFoam references;
+
+- Schmidt, D., Gopalakrishnan, S., and Jasak, H.,“Multidimensional Simulation of Thermal Non-Equilibrium Channel Flow,” Intl. J. of Multiphase Flow,vol. 36, pp. 284–292, 2010.
+- Gopalakrishnan, S. & Schmidt, D. P. A Computational Study of Flashing Flow in Fuel Injector Nozzles. SAE paper 2008-01–0141, (2008).
+- Schmidt, D. P., “Cavitation in Diesel Fuel InjectorNozzles”. PhD thesis, The University of Wisconsin-Madison, 1997.
+
+The Homogeneous Relaxation theory and useful historical data;
+
+- Downar-Zapolski, P., Bilicki, Z., Bolle, L. & Franco, J. The non-equilibrium relaxation model for one-dimensional flashing liquid flow. Int J Multiphas Flow 22, 473–483 (1996).
+- Zwart, P.J., Gerber, A.G., and Belamri, T., “A Two-PhaseFlow Model for Predicting Cavitation Dynamics”, In FifthInternational Conference on Multiphase Flow,Yokohama, Japan, 2004.
+- M. Reocreux, Contribution a letude des debits critiques en ecoulement diphasique eau-vapeur. PhD thesis, UniversiteScientifique et Medicale de Grenoble, France, 1974.
+- E. Winklhofer, E. Kull, E. Kelz, and A. Morozov, “Comprehensive hydraulic and flow field documentation in model throttleexperiments under cavitation conditions,” 17th Annual Conference on Liquid Atomization and Spray Systems, Zurich,Switzerland, September 2001, 2001. 
+- Downar-Zapolski, P., Bilicki, Z., Bolle, L., and Franco,F., “The Non-Equilibrium Relaxation Model for One-Dimensional Flashing Liquid Flow,” 3rd ASME/JSMEJoint Fluids Engineering Conference, vol. 208, no. 616,1999.
