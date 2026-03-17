@@ -9,10 +9,12 @@ Repository maintainer: Dr Daniel Duke
 Department of Mechanical & Aerospace Engineering
 Monash University, Australia
 
-## Notice to users (including students)
+## References
 
-Access to this repository must be approved by the maintainers.
-Do NOT share the code in this repository without prior permission.
+If you use HRMFoam in academic research, please cite one or more of the following as appropriate:
+
+- Rachakonda, S. K., Wang, Y., Jr, R. O. G., Moulai, M., Baldwin, E., Zhang, G., Parrish, S., Diwakar, R., Kuo, T.-W. & Schmidt, D. P. A computational approach to predict external spray characteristics for flashing and cavitating nozzles. International Journal of Multiphase Flow 106, 21–33 (2018).
+
 
 ## License
 This file is part of HRMFoam, which includes software from OpenFOAM.
