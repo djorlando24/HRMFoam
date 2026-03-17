@@ -1,6 +1,6 @@
 # HRMFoam
 
-**The Homogeneous Relaxation Model for ESI OpenFOAM with Sigma-Y droplet model.**
+**The Homogeneous Relaxation Model for OpenFOAM with Sigma-Y droplet model.**
 
 Copyright 2006-2010 David Schmidt, Shiva Gopalakrishnan, Kshitij Neroorkar
 University of Massachusetts Amherst
@@ -9,6 +9,7 @@ Repository maintainer: Dr Daniel Duke
 Department of Mechanical & Aerospace Engineering
 Monash University, Australia
  
+This software is designed to work with ESI OpenFOAM (https://www.openfoam.com)
 
 ## License
 This file is part of HRMFoam, which includes software from OpenFOAM.
