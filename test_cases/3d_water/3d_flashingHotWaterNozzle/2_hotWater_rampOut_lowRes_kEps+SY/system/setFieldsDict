@@ -1,6 +1,6 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM Extend Project: Open source CFD        |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
 |  \\    /   O peration     | Version:  1.6-ext                               |
 |   \\  /    A nd           | Web:      www.extend-project.de                 |
 |    \\/     M anipulation  |                                                 |
@@ -9,42 +9,32 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    location    "0";
-    object      nut;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
-
-internalField   uniform 5e-3; // sqrt(1.5)*(U*turbIntensity*turbLengthScale)
-
-boundaryField
-{
-    inlet
-    {
-        type            calculated;
-        value           $internalField;
-    }
-    
-    outlet
-    {
-        type            calculated;
-        value           $internalField;
-    }
-       
-    walls
-    {
-        type            nutkWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           $internalField;
-
-    }
-
-
-}
-
-
+defaultFieldValues
+(
+     volScalarFieldValue y 1
+     volScalarFieldValue rho 797.0
+);
+ 
+ regions
+ (
+     cylinderToCell
+     {
+	p1 (0 0 0.0005); // partway down the nozzle
+	p2 (0 0 1);
+	radius 0.001; // avoid intersection with outlet plenum
+	fieldValues
+         (
+             volScalarFieldValue y 0
+             volScalarFieldValue rho 0.796673E+03 
+         );
+     }
+ );
+ 
+ 
 // ************************************************************************* //

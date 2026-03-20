@@ -11,38 +11,34 @@ FoamFile
     format      ascii;
     class       volScalarField;
     location    "0";
-    object      nut;
+    object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 5e-3; // sqrt(1.5)*(U*turbIntensity*turbLengthScale)
+internalField   uniform 0;
 
 boundaryField
 {
+
     inlet
     {
-        type            calculated;
-        value           $internalField;
+        type            turbulentIntensityKineticEnergyInlet;
+	intensity	0.05;
+        value           uniform 0.0e-3;
     }
-    
+
     outlet
     {
-        type            calculated;
-        value           $internalField;
+        type            zeroGradient;
     }
-       
+
     walls
     {
-        type            nutkWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           $internalField;
-
+        type            kqRWallFunction;
+        value           uniform 0;
     }
-
 
 }
 

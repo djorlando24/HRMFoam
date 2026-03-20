@@ -8,12 +8,12 @@
 Build  : _8dbc61e11c-20241220 OPENFOAM=2412 version=v2412
 Arch   : "LSB;label=64;scalar=64"
 Exec   : setFields
-Date   : Mar 20 2026
-Time   : 10:58:46
+Date   : Feb 17 2026
+Time   : 13:53:14
 Host   : MU00155725X
-PID    : 37143
+PID    : 62206
 I/O    : uncollated
-Case   : /Volumes/HRMFoam_2025/HRMFoam/test_cases/3d_water/3d_flashingHotWaterNozzle/1_hotWater_rampOut_lowRes_laminar
+Case   : /Volumes/HRMFoam_2025/test_run/3d_water/3d_flashingHotWaterNozzle/1_hotWater_rampOut_laminar
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
