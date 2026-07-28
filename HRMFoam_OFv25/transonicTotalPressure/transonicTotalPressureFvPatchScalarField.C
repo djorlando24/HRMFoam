@@ -138,7 +138,8 @@ void transonicTotalPressureFvPatchScalarField::updateCoeffs()
        return;
    }
 
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   //fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+  const auto& phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
 
    const fvPatchField<scalar>& psi = this->patch().lookupPatchField<volScalarField>("thermo:psi");
 

@@ -142,7 +142,8 @@ void thermXFvPatchScalarField::updateCoeffs()
    const thermoBase& tPoint =
         this->db().objectRegistry::lookupObject<thermoBase>("tPoint");
 
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   //fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   const auto& phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
 
    const fvPatchField<scalar>& P = this->patch().lookupPatchField<volScalarField>("p");
 

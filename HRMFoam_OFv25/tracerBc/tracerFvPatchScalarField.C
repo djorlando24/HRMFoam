@@ -140,7 +140,8 @@ void tracerFvPatchScalarField::updateCoeffs()
    }
   
     
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   //fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   const auto& phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
          
    this->refValue() = pTraits<scalar>::zero;
    this->valueFraction() = 1- pos(phip);

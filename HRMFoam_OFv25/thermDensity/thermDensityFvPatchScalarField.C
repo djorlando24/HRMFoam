@@ -151,7 +151,8 @@ namespace Foam
 
     Switch comp(thermProps.lookup("compressible"));
 
-    fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+    //fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+    const auto& phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
      /* (
        phiName_,
        reinterpret_cast<const surfaceScalarField*>(NULL),

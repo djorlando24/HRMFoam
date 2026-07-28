@@ -147,7 +147,7 @@ void isoThermHFvPatchScalarField::updateCoeffs()
    const IOdictionary& thermophysicalProperties = this->db().objectRegistry::lookupObject<IOdictionary>("thermophysicalProperties");
    const refprop& tPoint =
         this->db().objectRegistry::lookupObject<refprop>("tPoint");
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   //fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
 
    const fvPatchField<scalar>& P = this->patch().lookupPatchField<volScalarField>("p");
 

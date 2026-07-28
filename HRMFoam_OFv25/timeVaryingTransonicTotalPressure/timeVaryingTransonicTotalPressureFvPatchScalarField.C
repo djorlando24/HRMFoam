@@ -149,7 +149,8 @@ void timeVaryingTransonicTotalPressureFvPatchScalarField::updateCoeffs()
 
    p0_ = timeSeries_(this->db().time().timeOutputValue());
 
-   fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   //fvsPatchField<scalar> phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
+   const auto& phip = this->patch().lookupPatchField<surfaceScalarField>(phiName_);
 
    const fvPatchField<scalar>& psi = this->patch().lookupPatchField<volScalarField>("thermo:psi");
 
@@ -164,6 +165,11 @@ void timeVaryingTransonicTotalPressureFvPatchScalarField::updateCoeffs()
    this->valueFraction() = Foam::max(1 - psi*magSqr(Up),0.0)*pos(phip)+(1-pos(phip));
    this->refGrad() = pTraits<scalar>::zero;
 
+    //   const Field<scalar> Mach = psi*magSqr(Up);
+    
+    //   Info << "Mach Number = " <<Mach << "    Vel = " << mag(Up) <<endl;
+    //  Info << "Vel = " << mag(Up) << endl;
+    
    mixedFvPatchScalarField::updateCoeffs();
 }
 

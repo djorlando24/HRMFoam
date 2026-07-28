@@ -1,3 +1,5 @@
+// seal is a scalar field that is equal to 1 where the flow should be fully blocked
+// and zero where the flow is fully free
 volScalarField seal
  (
      IOobject
@@ -86,11 +88,16 @@ else if (motionType == word("pacManTopoFvMesh3")){
 else if ((motionType == word("staticFvMesh")) && sealWithStaticMesh){
  Info << "Static mesh with sealing applied." << endl;
  // Start with sealing active for the first few timesteps, then permit relaxation using slRelaxation
+ // create a profile table for the static case
+ // start with an empty list
  List<Tuple2<scalar,scalar> > theList;
+// add a lift of -1 to activate the seal
  Tuple2<scalar,scalar> activateSeal(scalar(0),scalar(-1));
  theList.append(activateSeal);
+ // add a list entry lift of zero at a time of 10*initial time step
  Tuple2<scalar,scalar> releaseSeal(runTime.deltaT().value()*10, scalar(0));
  theList.append(releaseSeal);
+ // convert to an interpolation table
  profileTable = interpolationTable<scalar>(theList,bounds::repeatableBounding::CLAMP,fileName("Foo"));
 }
 

@@ -263,9 +263,9 @@ int main(int argc, char *argv[])
 
 	Vap_Mol_a = Model.Vap_Mol_a();
 	
-        if (Foam::max(mag(U)).value() >5000.00)
+        if (Foam::max(mag(U)).value() >10000.00)
         {
-            Warning << "Case diverging: U > 5000 m/s - finalising" << endl;
+            Warning << "Case diverging: U > 10000 m/s - finalising" << endl;
            runTime.writeAndEnd();
         }
 
