@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2406                                  |
+|  \\    /   O peration     | Version:  v2406                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,38 +9,32 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    arch        "LSB;label=32;scalar=64";
     class       volScalarField;
     location    "0";
-    object      p;
+    object      Omega;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [-1 2 0 0 0 0 0];
 
-internalField   uniform 6000000;
+internalField   uniform 0.0;
 
 boundaryField
 {
+    
     inlet
     {
-        type            transonicTotalPressure;
-        phi             phiv;
-        p0              6000000;
-        value           uniform 6000000;
+        type            fixedValue;
+        value           uniform 0.0;
     }
+    
     outlet
     {
-        type            timeVaryingTransonicTotalPressure;
-        U               U;
-        phi             phiv;
-        file            "outP.dat";
-        rho             rho;
-        psi             none;
-        gamma           1.4;
-        p0              1.01E5;
-        value           uniform 6000000;
+        type            inletOutlet;
+        inletValue	uniform 0;
+	value 		uniform 0;
     }
+    
     walls
     {
         type            zeroGradient;
@@ -56,7 +50,7 @@ boundaryField
         type            wedge;
     }
 
+
 }
 
-
-// ************************************************************************* //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

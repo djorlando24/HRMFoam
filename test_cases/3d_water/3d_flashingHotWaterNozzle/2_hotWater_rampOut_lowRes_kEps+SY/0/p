@@ -37,14 +37,25 @@ boundaryField
         file            "outP.dat";
         rho             rho;
         psi             none;
-        gamma           1;
-        p0              6000000;
+        gamma           1.4;
+        p0              1.01E5;
         value           uniform 6000000;
     }
     walls
     {
         type            zeroGradient;
     }
+    
+    wedge_front          
+    {
+        type            wedge;
+    }
+
+    wedge_back          
+    {
+        type            wedge;
+    }
+
 }
 
 

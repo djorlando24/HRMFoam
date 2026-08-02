@@ -18,16 +18,16 @@ FoamFile
 defaultFieldValues
 (
      volScalarFieldValue y 1
-     volScalarFieldValue rho 70.39
+     volScalarFieldValue rho 70.39 
 );
  
  regions
  (
      cylinderToCell
      {
-	p1 (0 0 0.0005); // partway down the nozzle
-	p2 (0 0 1);
-	radius 0.001; // avoid intersection with outlet plenum
+	p1 (0 0 0); // inlet patch
+	p2 (0.0116 0 0); // just inside the nozzle, to avoid intersection with outlet
+	radius 0.00125; // avoid intersection with outlet plenum
 	fieldValues
          (
              volScalarFieldValue y 0

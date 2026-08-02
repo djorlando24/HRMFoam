@@ -1,49 +1,41 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2406                                  |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|  \\    /   O peration     | Version:  1.5-dev                               |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
     version     2.0;
     format      ascii;
-    arch        "LSB;label=32;scalar=64";
-    class       volScalarField;
+    class       volVectorField;
     location    "0";
-    object      p;
+    object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform 6000000;
+internalField   uniform (0 0 0);
 
 boundaryField
 {
-    inlet
-    {
-        type            transonicTotalPressure;
-        phi             phiv;
-        p0              6000000;
-        value           uniform 6000000;
-    }
     outlet
     {
-        type            timeVaryingTransonicTotalPressure;
-        U               U;
-        phi             phiv;
-        file            "outP.dat";
-        rho             rho;
-        psi             none;
-        gamma           1.4;
-        p0              1.01E5;
-        value           uniform 6000000;
+        type            zeroGradient;
     }
+
     walls
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+
+    inlet
+    {
+        type            pressureInletVelocity;
+        value           uniform (0 0 0);
     }
     
     wedge_front          

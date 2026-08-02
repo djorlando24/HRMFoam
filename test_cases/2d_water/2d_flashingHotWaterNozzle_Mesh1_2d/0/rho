@@ -12,34 +12,27 @@ FoamFile
     arch        "LSB;label=32;scalar=64";
     class       volScalarField;
     location    "0";
-    object      p;
+    object      rho;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [1 -3 0 0 0 0 0];
 
-internalField   uniform 6000000;
+internalField   uniform 796.673;
 
 boundaryField
 {
     inlet
     {
-        type            transonicTotalPressure;
-        phi             phiv;
-        p0              6000000;
-        value           uniform 6000000;
+        type            thermDensity;
+        inletValue      uniform 796.673;
+        value           uniform 796.673;
     }
     outlet
     {
-        type            timeVaryingTransonicTotalPressure;
-        U               U;
-        phi             phiv;
-        file            "outP.dat";
-        rho             rho;
-        psi             none;
-        gamma           1.4;
-        p0              1.01E5;
-        value           uniform 6000000;
+        type            thermDensity;
+        inletValue      uniform 1.95;
+        value           uniform 70.39;
     }
     walls
     {

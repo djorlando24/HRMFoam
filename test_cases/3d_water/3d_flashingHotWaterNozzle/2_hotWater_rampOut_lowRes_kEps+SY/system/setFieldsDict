@@ -18,7 +18,7 @@ FoamFile
 defaultFieldValues
 (
      volScalarFieldValue y 1
-     volScalarFieldValue rho 797.0
+     volScalarFieldValue rho 70.39
 );
  
  regions

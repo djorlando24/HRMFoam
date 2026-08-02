@@ -32,7 +32,7 @@ boundaryField
     {
         type            thermDensity;
         inletValue      uniform 1.95;
-        value           uniform 797;
+        value           uniform 70.39;
     }
     walls
     {

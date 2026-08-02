@@ -1,0 +1,37 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      collapseDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+controlMeshQuality      off;
+
+collapseEdgesCoeffs
+{
+    // Merges edges shorter than this absolute length. 
+    // 1e-6 safely targets your zero-area axis points without warping the real mesh.
+    minimumEdgeLength   1e-6;
+    
+    // The maximum angle between two edges to merge them into a single line.
+    maximumMergeAngle   179;
+}
+
+collapseFacesCoeffs
+{
+    initialFaceLengthFactor                 0.5;
+    maxCollapseFaceToPointSideLengthCoeff   0.3;
+    allowEarlyCollapseToPoint               on;
+    allowEarlyCollapseCoeff                 0.2;
+    guardFraction                           0.1;
+}

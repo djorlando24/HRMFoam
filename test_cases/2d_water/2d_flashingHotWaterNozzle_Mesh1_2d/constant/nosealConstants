@@ -1,0 +1,35 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          sealConstants;
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+slRelaxation                   slRelaxation [0 0 1 0 0 0 0]  20e-3;     //Time relaxation factor [s] for releasing seal, smaller is quicker
+drag                           drag         [0 0 1 0 0 0 0]  1e-8;     //Drag constant, smaller is more aggressive 
+lowerCorner                    (-0.0003 -0.0003 0.00025);              //bounding box lower corner [x y z]
+upperCorner                    ( 0.0003  0.0003 0.00075);              //bounding box upper corner [x y z]
+triggerDisp                    triggerDisp  [0 0 0 0 0 0 0] 0;         //needle displacement for seal toggle, dimensions of length in real life
+sealWithStaticMesh             yes;                                     //set 'yes' to enforce sealing without a dynamic mesh
+
+// ************************************************************************* //
+
