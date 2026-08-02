@@ -26,9 +26,9 @@ FoamFile
 // HRM coefficients (generally don't edit)
 
 // varname			  kg m  s  -  -  -  -  value
-theta_0      	theta_0      	[ 0  0  1  0  0  0  0] 3.84E-7;   // 6.51E-4 for "low pressure"
-alphaFracExp    alphaFracExp	[ 0  0  0  0  0  0  0] -0.54;	  // -0.257  for "low pressure"
-pNonDimExp      pNonDimExp 	[ 0  0  0  0  0  0  0] -1.76;	  // -2.24.  for "low pressure"
+theta_0      	theta_0      	[ 0  0  1  0  0  0  0] 6.51E-4; // 3.84E-7; for "high pressure"
+alphaFracExp    alphaFracExp	[ 0  0  0  0  0  0  0] -0.257; //-0.54;	for "high pressure"
+pNonDimExp      pNonDimExp 	[ 0  0  0  0  0  0  0] -2.24; //-1.76 for "high pressure"
 
 // working fluid sound speeds (don't trust fluid.dat values!)
 aL              aL   		[ 0  1 -1  0  0  0  0] 1200.0;
@@ -51,7 +51,7 @@ hDatum          hDatum 		[ 0 2 -2  0 0  0  0  ]  801515;
 // HRMFoam switches to turn features on and off.
 compressible yes;
 
-pcritical   yes;
+pcritical   no;
 adiabatic   yes;
 thermModel   refprop;
 lBoundRho    yes;
