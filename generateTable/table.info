@@ -4,6 +4,6 @@
 1  
 "fluids/WATER.FLD"
 1.00   #mass fractions
-P_start 1E3  P_end 400E3 Step 1E3
-H_start 133E3 H_end  733E3 Step 1E5
+P_start 2E3  P_end 6E6 Step 2E3
+H_start 1E5 H_end  2E6 Step 5E4
 
