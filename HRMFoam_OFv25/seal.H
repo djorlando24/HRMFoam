@@ -3,10 +3,11 @@ if (haveSeal)
 
   const scalar timeValue = U.db().time().timeOutputValue();
 
-  Info << "Interpolated lift profile value = " << profileTable(timeValue) << endl;
+  if(!sealWithStaticMesh)
+      Info << "Interpolated lift profile value = " << profileTable(timeValue) << endl;
 
 
-// set the equilibrium value
+  // set the equilibrium value
 
   volScalarField eqSeal(seal) ;  // an easy construction
 
