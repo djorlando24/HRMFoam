@@ -1,0 +1,42 @@
+#!/bin/bash -l
+#PBS -A XRayFuelSpray
+#PBS -l select=1:mpiprocs=128
+#PBS -l walltime=24:0:0
+
+#PBS -N ankit1
+#PBS -j oe
+#PBS -m n
+#PBS -M daniel.duke@monash.edu
+
+cd $PBS_O_WORKDIR
+echo Jobid: $PBS_JOBID
+echo Running on host `hostname`
+echo Running on nodes `cat $PBS_NODEFILE`
+
+module load gcc/13.2.0 openmpi/4.1.6-gcc-13.2.0 fftw/3.3.10-openmpi-4.1.6-gcc-13.2.0 gmp/6.3.0-gcc-12.3.0
+
+module list                # Print all loaded modules
+which mpirun               # Show which mpirun executable we are using
+
+source $HOME/OpenFOAM/OpenFOAM-v2412/etc/bashrc 
+
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+
+#------------------------------------------------------------------------------
+
+if [ ! -f log.$(getApplication) ] ; then
+	# new case
+	# runApplication setFields
+	echo
+else
+	# restarting
+	move_logs.sh log.$(getApplication)
+fi
+
+runApplication decomposePar
+runParallel $(getApplication)
+
+# if successfully completed run, recon timesteps
+runApplication reconstructPar
+
+#------------------------------------------------------------------------------

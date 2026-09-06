@@ -1,0 +1,40 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+defaultFieldValues
+(
+     volScalarFieldValue y 1
+     volScalarFieldValue rho 70.39 
+);
+ 
+ regions
+ (
+     cylinderToCell
+     {
+	p1 (0 0 0); // inlet patch
+	p2 (0.0116 0 0); // just inside the nozzle, to avoid intersection with outlet
+	radius 0.00125; // avoid intersection with outlet plenum
+	fieldValues
+         (
+             volScalarFieldValue y 0
+             volScalarFieldValue rho 0.796673E+03 
+         );
+     }
+ );
+ 
+ 
+// ************************************************************************* //
